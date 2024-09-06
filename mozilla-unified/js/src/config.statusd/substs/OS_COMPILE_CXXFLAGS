@@ -1,0 +1,5 @@
+[
+    "-DMOZILLA_CLIENT",
+    "-include",
+    "/home/user/Documents/GitHub/pack-o-mat/mozilla-unified/js/src/js/src/js-confdefs.h"
+]

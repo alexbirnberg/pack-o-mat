@@ -1,0 +1,4 @@
+[
+    "-L/usr/local/lib",
+    "-lmozjs-132a1"
+]

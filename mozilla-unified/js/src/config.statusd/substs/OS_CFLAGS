@@ -1,0 +1,5 @@
+[
+    "-pthread",
+    "-fno-math-errno",
+    "-fPIC"
+]

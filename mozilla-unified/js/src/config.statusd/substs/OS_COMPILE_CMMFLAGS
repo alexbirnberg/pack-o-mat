@@ -1,0 +1,5 @@
+[
+    "-x",
+    "objective-c++",
+    "-fobjc-exceptions"
+]

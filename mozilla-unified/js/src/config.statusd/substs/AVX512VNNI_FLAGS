@@ -1,0 +1,7 @@
+[
+    "-mavx512vnni",
+    "-mavx512bw",
+    "-mavx512f",
+    "-mavx512dq",
+    "-mavx512cd"
+]

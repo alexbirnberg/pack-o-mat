@@ -1,0 +1,6 @@
+[
+    "/home/user/.mozbuild/clang/bin/clang++",
+    "-E",
+    "--sysroot",
+    "/home/user/.mozbuild/sysroot-x86_64-linux-gnu"
+]

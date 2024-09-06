@@ -1,0 +1,8 @@
+[
+    "$(CC)",
+    "$(COMPUTED_C_LDFLAGS)",
+    "$(DSO_LDOPTS)",
+    "-Wl,-h,$(DSO_SONAME)",
+    "-o",
+    "$@"
+]

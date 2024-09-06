@@ -1,0 +1,2508 @@
+INFO: checking for vcs source checkout... 
+INFO: no
+INFO: checking for a shell... 
+INFO: /usr/bin/sh
+INFO: checking for host system type... 
+DEBUG: Executing: `/usr/bin/sh /home/user/Documents/GitHub/pack-o-mat/mozilla-unified/build/moz.configure/../autoconf/config.guess`
+INFO: x86_64-pc-linux-gnu
+INFO: checking for target system type... 
+INFO: x86_64-pc-linux-gnu
+INFO: checking whether cross compiling... 
+INFO: no
+INFO: checking for the target C compiler... 
+DEBUG: _cc: Looking for clang
+INFO: /home/user/.mozbuild/clang/bin/clang
+INFO: checking for ccache... 
+INFO: not found
+INFO: Using target sysroot in /home/user/.mozbuild/sysroot-x86_64-linux-gnu
+INFO: checking whether the target C compiler can be used... 
+DEBUG: Creating `/tmp/conftesta7vckppz.c` with content:
+DEBUG: | #if defined(_MSC_VER) && defined(__clang__) && defined(_MT)
+DEBUG: | %COMPILER "clang-cl"
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #elif defined(__clang__)
+DEBUG: | %COMPILER "clang"
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #  ifdef __apple_build_version__
+DEBUG: | %XCODE 1
+DEBUG: | #  endif
+DEBUG: | #elif defined(__GNUC__) && !defined(__MINGW32__)
+DEBUG: | %COMPILER "gcc"
+DEBUG: | %VERSION __GNUC__.__GNUC_MINOR__.__GNUC_PATCHLEVEL__
+DEBUG: | #endif
+DEBUG: | 
+DEBUG: | #if __cplusplus
+DEBUG: | %cplusplus __cplusplus
+DEBUG: | #elif __STDC_VERSION__
+DEBUG: | %STDC_VERSION __STDC_VERSION__
+DEBUG: | #endif
+DEBUG: | #if __i386__ || _M_IX86
+DEBUG: | %CPU "x86"
+DEBUG: | #elif __x86_64__ || _M_X64
+DEBUG: | %CPU "x86_64"
+DEBUG: | #elif __arm__ || _M_ARM
+DEBUG: | %CPU "arm"
+DEBUG: | #elif __aarch64__ || _M_ARM64
+DEBUG: | %CPU "aarch64"
+DEBUG: | #elif __ia64__
+DEBUG: | %CPU "ia64"
+DEBUG: | #elif __s390x__
+DEBUG: | %CPU "s390x"
+DEBUG: | #elif __s390__
+DEBUG: | %CPU "s390"
+DEBUG: | #elif __powerpc64__
+DEBUG: | %CPU "ppc64"
+DEBUG: | #elif __powerpc__
+DEBUG: | %CPU "ppc"
+DEBUG: | #elif __alpha__
+DEBUG: | %CPU "Alpha"
+DEBUG: | #elif __hppa__
+DEBUG: | %CPU "hppa"
+DEBUG: | #elif __sparc__ && __arch64__
+DEBUG: | %CPU "sparc64"
+DEBUG: | #elif __sparc__
+DEBUG: | %CPU "sparc"
+DEBUG: | #elif __m68k__
+DEBUG: | %CPU "m68k"
+DEBUG: | #elif __mips64
+DEBUG: | %CPU "mips64"
+DEBUG: | #elif __mips__
+DEBUG: | %CPU "mips32"
+DEBUG: | #elif __riscv && __riscv_xlen == 64
+DEBUG: | %CPU "riscv64"
+DEBUG: | #elif __loongarch64
+DEBUG: | %CPU "loongarch64"
+DEBUG: | #elif __sh__
+DEBUG: | %CPU "sh4"
+DEBUG: | #elif __wasm32__
+DEBUG: | %CPU "wasm32"
+DEBUG: | #endif
+DEBUG: | #if __APPLE__
+DEBUG: | %KERNEL "Darwin"
+DEBUG: | #elif __DragonFly__
+DEBUG: | %KERNEL "DragonFly"
+DEBUG: | #elif __FreeBSD__
+DEBUG: | %KERNEL "FreeBSD"
+DEBUG: | #elif __FreeBSD_kernel__
+DEBUG: | %KERNEL "kFreeBSD"
+DEBUG: | #elif __linux__
+DEBUG: | %KERNEL "Linux"
+DEBUG: | #elif __NetBSD__
+DEBUG: | %KERNEL "NetBSD"
+DEBUG: | #elif __OpenBSD__
+DEBUG: | %KERNEL "OpenBSD"
+DEBUG: | #elif __sun__
+DEBUG: | %KERNEL "SunOS"
+DEBUG: | #elif _WIN32 || __CYGWIN__
+DEBUG: | %KERNEL "WINNT"
+DEBUG: | #elif __wasi__
+DEBUG: | %KERNEL "WASI"
+DEBUG: | #endif
+DEBUG: | #if __ANDROID__
+DEBUG: | %OS "Android"
+DEBUG: | #endif
+DEBUG: | #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+DEBUG: | %ENDIANNESS "little"
+DEBUG: | #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+DEBUG: | %ENDIANNESS "big"
+DEBUG: | #endif
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftesta7vckppz.c -E`
+DEBUG: COMPILER = clang
+DEBUG: VERSION = 18.1.7
+DEBUG: STDC_VERSION = 201710L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+DEBUG: Creating `/tmp/conftestvawr3eir.c` with content:
+DEBUG: | #if defined(_MSC_VER) && defined(__clang__) && defined(_MT)
+DEBUG: | %COMPILER "clang-cl"
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #elif defined(__clang__)
+DEBUG: | %COMPILER "clang"
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #  ifdef __apple_build_version__
+DEBUG: | %XCODE 1
+DEBUG: | #  endif
+DEBUG: | #elif defined(__GNUC__) && !defined(__MINGW32__)
+DEBUG: | %COMPILER "gcc"
+DEBUG: | %VERSION __GNUC__.__GNUC_MINOR__.__GNUC_PATCHLEVEL__
+DEBUG: | #endif
+DEBUG: | 
+DEBUG: | #if __cplusplus
+DEBUG: | %cplusplus __cplusplus
+DEBUG: | #elif __STDC_VERSION__
+DEBUG: | %STDC_VERSION __STDC_VERSION__
+DEBUG: | #endif
+DEBUG: | #if __i386__ || _M_IX86
+DEBUG: | %CPU "x86"
+DEBUG: | #elif __x86_64__ || _M_X64
+DEBUG: | %CPU "x86_64"
+DEBUG: | #elif __arm__ || _M_ARM
+DEBUG: | %CPU "arm"
+DEBUG: | #elif __aarch64__ || _M_ARM64
+DEBUG: | %CPU "aarch64"
+DEBUG: | #elif __ia64__
+DEBUG: | %CPU "ia64"
+DEBUG: | #elif __s390x__
+DEBUG: | %CPU "s390x"
+DEBUG: | #elif __s390__
+DEBUG: | %CPU "s390"
+DEBUG: | #elif __powerpc64__
+DEBUG: | %CPU "ppc64"
+DEBUG: | #elif __powerpc__
+DEBUG: | %CPU "ppc"
+DEBUG: | #elif __alpha__
+DEBUG: | %CPU "Alpha"
+DEBUG: | #elif __hppa__
+DEBUG: | %CPU "hppa"
+DEBUG: | #elif __sparc__ && __arch64__
+DEBUG: | %CPU "sparc64"
+DEBUG: | #elif __sparc__
+DEBUG: | %CPU "sparc"
+DEBUG: | #elif __m68k__
+DEBUG: | %CPU "m68k"
+DEBUG: | #elif __mips64
+DEBUG: | %CPU "mips64"
+DEBUG: | #elif __mips__
+DEBUG: | %CPU "mips32"
+DEBUG: | #elif __riscv && __riscv_xlen == 64
+DEBUG: | %CPU "riscv64"
+DEBUG: | #elif __loongarch64
+DEBUG: | %CPU "loongarch64"
+DEBUG: | #elif __sh__
+DEBUG: | %CPU "sh4"
+DEBUG: | #elif __wasm32__
+DEBUG: | %CPU "wasm32"
+DEBUG: | #endif
+DEBUG: | #if __APPLE__
+DEBUG: | %KERNEL "Darwin"
+DEBUG: | #elif __DragonFly__
+DEBUG: | %KERNEL "DragonFly"
+DEBUG: | #elif __FreeBSD__
+DEBUG: | %KERNEL "FreeBSD"
+DEBUG: | #elif __FreeBSD_kernel__
+DEBUG: | %KERNEL "kFreeBSD"
+DEBUG: | #elif __linux__
+DEBUG: | %KERNEL "Linux"
+DEBUG: | #elif __NetBSD__
+DEBUG: | %KERNEL "NetBSD"
+DEBUG: | #elif __OpenBSD__
+DEBUG: | %KERNEL "OpenBSD"
+DEBUG: | #elif __sun__
+DEBUG: | %KERNEL "SunOS"
+DEBUG: | #elif _WIN32 || __CYGWIN__
+DEBUG: | %KERNEL "WINNT"
+DEBUG: | #elif __wasi__
+DEBUG: | %KERNEL "WASI"
+DEBUG: | #endif
+DEBUG: | #if __ANDROID__
+DEBUG: | %OS "Android"
+DEBUG: | #endif
+DEBUG: | #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+DEBUG: | %ENDIANNESS "little"
+DEBUG: | #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+DEBUG: | %ENDIANNESS "big"
+DEBUG: | #endif
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestvawr3eir.c -E`
+DEBUG: COMPILER = clang
+DEBUG: VERSION = 18.1.7
+DEBUG: STDC_VERSION = 199901L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+INFO: yes
+INFO: checking for the target C++ compiler... 
+DEBUG: _cxx: Looking for /home/user/.mozbuild/clang/bin/clang++
+INFO: /home/user/.mozbuild/clang/bin/clang++
+INFO: checking whether the target C++ compiler can be used... 
+DEBUG: Creating `/tmp/conftest3m40jhlr.cpp` with content:
+DEBUG: | #if defined(_MSC_VER) && defined(__clang__) && defined(_MT)
+DEBUG: | %COMPILER "clang-cl"
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #elif defined(__clang__)
+DEBUG: | %COMPILER "clang"
+DEBUG: | %VERSION __clang_major__.__clang_minor__.__clang_patchlevel__
+DEBUG: | #  ifdef __apple_build_version__
+DEBUG: | %XCODE 1
+DEBUG: | #  endif
+DEBUG: | #elif defined(__GNUC__) && !defined(__MINGW32__)
+DEBUG: | %COMPILER "gcc"
+DEBUG: | %VERSION __GNUC__.__GNUC_MINOR__.__GNUC_PATCHLEVEL__
+DEBUG: | #endif
+DEBUG: | 
+DEBUG: | #if __cplusplus
+DEBUG: | %cplusplus __cplusplus
+DEBUG: | #elif __STDC_VERSION__
+DEBUG: | %STDC_VERSION __STDC_VERSION__
+DEBUG: | #endif
+DEBUG: | #if __i386__ || _M_IX86
+DEBUG: | %CPU "x86"
+DEBUG: | #elif __x86_64__ || _M_X64
+DEBUG: | %CPU "x86_64"
+DEBUG: | #elif __arm__ || _M_ARM
+DEBUG: | %CPU "arm"
+DEBUG: | #elif __aarch64__ || _M_ARM64
+DEBUG: | %CPU "aarch64"
+DEBUG: | #elif __ia64__
+DEBUG: | %CPU "ia64"
+DEBUG: | #elif __s390x__
+DEBUG: | %CPU "s390x"
+DEBUG: | #elif __s390__
+DEBUG: | %CPU "s390"
+DEBUG: | #elif __powerpc64__
+DEBUG: | %CPU "ppc64"
+DEBUG: | #elif __powerpc__
+DEBUG: | %CPU "ppc"
+DEBUG: | #elif __alpha__
+DEBUG: | %CPU "Alpha"
+DEBUG: | #elif __hppa__
+DEBUG: | %CPU "hppa"
+DEBUG: | #elif __sparc__ && __arch64__
+DEBUG: | %CPU "sparc64"
+DEBUG: | #elif __sparc__
+DEBUG: | %CPU "sparc"
+DEBUG: | #elif __m68k__
+DEBUG: | %CPU "m68k"
+DEBUG: | #elif __mips64
+DEBUG: | %CPU "mips64"
+DEBUG: | #elif __mips__
+DEBUG: | %CPU "mips32"
+DEBUG: | #elif __riscv && __riscv_xlen == 64
+DEBUG: | %CPU "riscv64"
+DEBUG: | #elif __loongarch64
+DEBUG: | %CPU "loongarch64"
+DEBUG: | #elif __sh__
+DEBUG: | %CPU "sh4"
+DEBUG: | #elif __wasm32__
+DEBUG: | %CPU "wasm32"
+DEBUG: | #endif
+DEBUG: | #if __APPLE__
+DEBUG: | %KERNEL "Darwin"
+DEBUG: | #elif __DragonFly__
+DEBUG: | %KERNEL "DragonFly"
+DEBUG: | #elif __FreeBSD__
+DEBUG: | %KERNEL "FreeBSD"
+DEBUG: | #elif __FreeBSD_kernel__
+DEBUG: | %KERNEL "kFreeBSD"
+DEBUG: | #elif __linux__
+DEBUG: | %KERNEL "Linux"
+DEBUG: | #elif __NetBSD__
+DEBUG: | %KERNEL "NetBSD"
+DEBUG: | #elif __OpenBSD__
+DEBUG: | %KERNEL "OpenBSD"
+DEBUG: | #elif __sun__
+DEBUG: | %KERNEL "SunOS"
+DEBUG: | #elif _WIN32 || __CYGWIN__
+DEBUG: | %KERNEL "WINNT"
+DEBUG: | #elif __wasi__
+DEBUG: | %KERNEL "WASI"
+DEBUG: | #endif
+DEBUG: | #if __ANDROID__
+DEBUG: | %OS "Android"
+DEBUG: | #endif
+DEBUG: | #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+DEBUG: | %ENDIANNESS "little"
+DEBUG: | #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+DEBUG: | %ENDIANNESS "big"
+DEBUG: | #endif
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest3m40jhlr.cpp -E`
+DEBUG: COMPILER = clang
+DEBUG: VERSION = 18.1.7
+DEBUG: cplusplus = 201703L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+INFO: yes
+INFO: checking for unwind.h... 
+DEBUG: Creating `/tmp/conftest60asobal.cpp` with content:
+DEBUG: | #include <unwind.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest60asobal.cpp -c`
+INFO: yes
+INFO: checking for target linker... 
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 -fuse-ld=lld -Wl,--version`
+INFO: lld
+INFO: checking for _Unwind_Backtrace... 
+DEBUG: Creating `/tmp/conftestq082_a12.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char _Unwind_Backtrace();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | _Unwind_Backtrace();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestq082_a12.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for Python 3... 
+INFO: /home/user/.mozbuild/srcdirs/mozilla-unified-30d53dd1d2a6/_virtualenvs/build/bin/python (3.11.2)
+INFO: checking for wget... 
+DEBUG: wget: Looking for wget
+INFO: /usr/bin/wget
+INFO: Using host sysroot in /home/user/.mozbuild/sysroot-x86_64-linux-gnu
+INFO: checking the target C compiler version... 
+INFO: 18.1.7
+INFO: checking the target C compiler works... 
+DEBUG: Creating `/tmp/conftestk_9wy75g.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestk_9wy75g.c -c`
+INFO: yes
+INFO: checking the target C++ compiler version... 
+INFO: 18.1.7
+INFO: checking the target C++ compiler works... 
+DEBUG: Creating `/tmp/conftestkyceggqm.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestkyceggqm.cpp -c`
+INFO: yes
+INFO: checking for the host C compiler... 
+DEBUG: _host_cc: Looking for /home/user/.mozbuild/clang/bin/clang
+INFO: /home/user/.mozbuild/clang/bin/clang
+INFO: checking whether the host C compiler can be used... 
+DEBUG: COMPILER = clang
+DEBUG: VERSION = 18.1.7
+DEBUG: STDC_VERSION = 201710L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+DEBUG: COMPILER = clang
+DEBUG: VERSION = 18.1.7
+DEBUG: STDC_VERSION = 199901L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+INFO: yes
+INFO: checking the host C compiler version... 
+INFO: 18.1.7
+INFO: checking the host C compiler works... 
+INFO: yes
+INFO: checking for the host C++ compiler... 
+DEBUG: _host_cxx: Looking for /home/user/.mozbuild/clang/bin/clang++
+INFO: /home/user/.mozbuild/clang/bin/clang++
+INFO: checking whether the host C++ compiler can be used... 
+DEBUG: COMPILER = clang
+DEBUG: VERSION = 18.1.7
+DEBUG: cplusplus = 201703L
+DEBUG: CPU = x86_64
+DEBUG: KERNEL = Linux
+DEBUG: ENDIANNESS = little
+INFO: yes
+INFO: checking the host C++ compiler version... 
+INFO: 18.1.7
+INFO: checking the host C++ compiler works... 
+INFO: yes
+INFO: checking for host linker... 
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 -fuse-ld=lld -Wl,--version`
+INFO: lld
+INFO: checking for 64-bit OS... 
+DEBUG: Creating `/tmp/conftestzj104pjt.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | static_assert(sizeof(void *) == 8, "")
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestzj104pjt.cpp -c`
+INFO: yes
+INFO: checking for new enough STL headers from libstdc++... 
+DEBUG: Creating `/tmp/conftest1azpx48k.cpp` with content:
+DEBUG: | #include <cstddef>
+DEBUG: |                 int
+DEBUG: |                 main(void)
+DEBUG: |                 {
+DEBUG: |                 #if defined(__GLIBCXX__) && !defined(_GLIBCXX_RELEASE)
+DEBUG: | #  error libstdc++ not new enough
+DEBUG: | #endif
+DEBUG: | #if defined(_GLIBCXX_RELEASE)
+DEBUG: | #  if _GLIBCXX_RELEASE < 8
+DEBUG: | #    error libstdc++ not new enough
+DEBUG: | #  else
+DEBUG: |      (void) 0
+DEBUG: | #  endif
+DEBUG: | #endif
+DEBUG: |                   ;
+DEBUG: |                   return 0;
+DEBUG: |                 }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest1azpx48k.cpp -c`
+INFO: yes
+INFO: checking for __thread keyword for TLS variables... 
+DEBUG: Creating `/tmp/conftest85mfyg1l.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | static __thread bool tlsIsMainThread = false; return tlsIsMainThread;
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest85mfyg1l.cpp -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for the assembler... 
+DEBUG: _as: Looking for /home/user/.mozbuild/clang/bin/clang
+INFO: /home/user/.mozbuild/clang/bin/clang
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --print-prog-name=llvm-objdump`
+INFO: checking for llvm-objdump... 
+DEBUG: llvm_objdump: Looking for /home/user/.mozbuild/clang/bin/llvm-objdump
+INFO: /home/user/.mozbuild/clang/bin/llvm-objdump
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --print-prog-name=llvm-ar`
+INFO: checking for ar... 
+DEBUG: ar: Looking for /home/user/.mozbuild/clang/bin/llvm-ar
+INFO: /home/user/.mozbuild/clang/bin/llvm-ar
+INFO: checking whether ar supports response files... 
+DEBUG: Creating `/tmp/conftest6i_z5e1n.c` with content:
+DEBUG: | void foo() {}
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest6i_z5e1n.c -c -o /tmp/conftesth2u8g9ik.o`
+DEBUG: Creating `/tmp/conftesta_cahprj.list` with content:
+DEBUG: | /tmp/conftesth2u8g9ik.o
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/llvm-ar crs /tmp/conftestjjd90ak5.a @/tmp/conftesta_cahprj.list`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | /home/user/.mozbuild/clang/bin/llvm-ar: error: @/tmp/conftesta_cahprj.list: No such file or directory
+INFO: no
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --print-prog-name=llvm-ar`
+INFO: checking for host_ar... 
+DEBUG: host_ar: Looking for /home/user/.mozbuild/clang/bin/llvm-ar
+INFO: /home/user/.mozbuild/clang/bin/llvm-ar
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --print-prog-name=llvm-nm`
+INFO: checking for nm... 
+DEBUG: nm: Looking for /home/user/.mozbuild/clang/bin/llvm-nm
+INFO: /home/user/.mozbuild/clang/bin/llvm-nm
+INFO: checking for -mavxvnni support... 
+DEBUG: Creating `/tmp/conftestz622jhxp.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestz622jhxp.cpp -mavxvnni -c`
+INFO: yes
+INFO: checking for -mavx512bw support... 
+DEBUG: Creating `/tmp/conftestzf65k8zz.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestzf65k8zz.cpp -mavx512bw -mavx512f -mavx512dq -mavx512cd -c`
+INFO: yes
+INFO: checking for -mavx512vnni support... 
+DEBUG: Creating `/tmp/conftest06sfimd6.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest06sfimd6.cpp -mavx512vnni -mavx512bw -mavx512f -mavx512dq -mavx512cd -c`
+INFO: yes
+INFO: checking for pkg_config... 
+DEBUG: pkg_config: Looking for pkg-config
+INFO: /home/user/.mozbuild/pkgconf/pkg-config
+INFO: checking for pkg-config version... 
+DEBUG: Executing: `/home/user/.mozbuild/pkgconf/pkg-config --version`
+INFO: 1.8.0
+INFO: checking whether pkg-config is pkgconf... 
+DEBUG: Executing: `/home/user/.mozbuild/pkgconf/pkg-config --about`
+INFO: yes
+INFO: checking for strndup... 
+DEBUG: Creating `/tmp/conftestitu67y9i.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char strndup();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | strndup();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestitu67y9i.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+DEBUG: | /tmp/conftestitu67y9i.c:4:6: warning: incompatible redeclaration of library function 'strndup' [-Wincompatible-library-redeclaration]
+DEBUG: |     4 | char strndup();
+DEBUG: |       |      ^
+DEBUG: | /tmp/conftestitu67y9i.c:4:6: note: 'strndup' is a builtin with type 'char *(const char *, unsigned long)'
+DEBUG: | 1 warning generated.
+INFO: yes
+INFO: checking for posix_memalign... 
+DEBUG: Creating `/tmp/conftestwx70tppz.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char posix_memalign();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | posix_memalign();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestwx70tppz.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for memalign... 
+DEBUG: Creating `/tmp/conftestal6crpyh.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char memalign();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | memalign();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestal6crpyh.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+DEBUG: | /tmp/conftestal6crpyh.c:4:6: warning: incompatible redeclaration of library function 'memalign' [-Wincompatible-library-redeclaration]
+DEBUG: |     4 | char memalign();
+DEBUG: |       |      ^
+DEBUG: | /tmp/conftestal6crpyh.c:4:6: note: 'memalign' is a builtin with type 'void *(unsigned long, unsigned long)'
+DEBUG: | 1 warning generated.
+INFO: yes
+INFO: checking for malloc_usable_size... 
+DEBUG: Creating `/tmp/conftestmz6hit5f.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char malloc_usable_size();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | malloc_usable_size();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestmz6hit5f.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for malloc.h... 
+DEBUG: Creating `/tmp/conftest6flzpygo.cpp` with content:
+DEBUG: | #include <malloc.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest6flzpygo.cpp -c`
+INFO: yes
+INFO: checking whether malloc_usable_size definition can use const argument... 
+DEBUG: Creating `/tmp/conftestbl48ju0n.c` with content:
+DEBUG: | #include <malloc.h>
+DEBUG: | #include <stddef.h>
+DEBUG: |         int
+DEBUG: |         main(void)
+DEBUG: |         {
+DEBUG: | 
+DEBUG: | extern size_t malloc_usable_size(const void *ptr);
+DEBUG: | return malloc_usable_size(0);
+DEBUG: | 
+DEBUG: |           ;
+DEBUG: |           return 0;
+DEBUG: |         }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestbl48ju0n.c -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | /tmp/conftestbl48ju0n.c:7:15: error: conflicting types for 'malloc_usable_size'
+DEBUG: |     7 | extern size_t malloc_usable_size(const void *ptr);
+DEBUG: |       |               ^
+DEBUG: | /home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/include/malloc.h:129:15: note: previous declaration is here
+DEBUG: |   129 | extern size_t malloc_usable_size (void *__ptr) __THROW;
+DEBUG: |       |               ^
+DEBUG: | 1 error generated.
+INFO: no
+INFO: checking for stdint.h... 
+DEBUG: Creating `/tmp/conftestwhh33pl2.cpp` with content:
+DEBUG: | #include <stdint.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestwhh33pl2.cpp -c`
+INFO: yes
+INFO: checking for inttypes.h... 
+DEBUG: Creating `/tmp/conftest_sr209_n.cpp` with content:
+DEBUG: | #include <inttypes.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest_sr209_n.cpp -c`
+INFO: yes
+INFO: checking for alloca.h... 
+DEBUG: Creating `/tmp/conftest3b1g4_iq.cpp` with content:
+DEBUG: | #include <alloca.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest3b1g4_iq.cpp -c`
+INFO: yes
+INFO: checking for sys/byteorder.h... 
+DEBUG: Creating `/tmp/conftest7_7qhr27.cpp` with content:
+DEBUG: | #include <sys/byteorder.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest7_7qhr27.cpp -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | /tmp/conftest7_7qhr27.cpp:1:10: fatal error: 'sys/byteorder.h' file not found
+DEBUG: |     1 | #include <sys/byteorder.h>
+DEBUG: |       |          ^~~~~~~~~~~~~~~~~
+DEBUG: | 1 error generated.
+INFO: no
+INFO: checking for getopt.h... 
+DEBUG: Creating `/tmp/conftesthr1nej4k.cpp` with content:
+DEBUG: | #include <getopt.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftesthr1nej4k.cpp -c`
+INFO: yes
+INFO: checking for unistd.h... 
+DEBUG: Creating `/tmp/conftest_o8m8ov1.cpp` with content:
+DEBUG: | #include <unistd.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest_o8m8ov1.cpp -c`
+INFO: yes
+INFO: checking for nl_types.h... 
+DEBUG: Creating `/tmp/conftestm7a8ha9m.cpp` with content:
+DEBUG: | #include <nl_types.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestm7a8ha9m.cpp -c`
+INFO: yes
+INFO: checking for cpuid.h... 
+DEBUG: Creating `/tmp/conftestschojni3.cpp` with content:
+DEBUG: | #include <cpuid.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestschojni3.cpp -c`
+INFO: yes
+INFO: checking for fts.h... 
+DEBUG: Creating `/tmp/conftest03jwy42i.cpp` with content:
+DEBUG: | #include <fts.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest03jwy42i.cpp -c`
+INFO: yes
+INFO: checking for sys/statvfs.h... 
+DEBUG: Creating `/tmp/conftest6g4t7l2a.cpp` with content:
+DEBUG: | #include <sys/statvfs.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest6g4t7l2a.cpp -c`
+INFO: yes
+INFO: checking for sys/statfs.h... 
+DEBUG: Creating `/tmp/conftestuz0_qgjv.cpp` with content:
+DEBUG: | #include <sys/statfs.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestuz0_qgjv.cpp -c`
+INFO: yes
+INFO: checking for sys/vfs.h... 
+DEBUG: Creating `/tmp/conftestswqsb0og.cpp` with content:
+DEBUG: | #include <sys/vfs.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestswqsb0og.cpp -c`
+INFO: yes
+INFO: checking for sys/mount.h... 
+DEBUG: Creating `/tmp/conftestgnz60zjn.cpp` with content:
+DEBUG: | #include <sys/mount.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestgnz60zjn.cpp -c`
+INFO: yes
+INFO: checking for sys/quota.h... 
+DEBUG: Creating `/tmp/conftestsrxjkfm8.cpp` with content:
+DEBUG: | #include <sys/quota.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | quotactl(0, nullptr, 0, (caddr_t)nullptr);
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestsrxjkfm8.cpp -c`
+INFO: yes
+INFO: checking for linux/quota.h... 
+DEBUG: Creating `/tmp/conftestz95cew4j.cpp` with content:
+DEBUG: | #include <sys/socket.h>
+DEBUG: | #include <linux/quota.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestz95cew4j.cpp -c`
+INFO: yes
+INFO: checking for linux/if_addr.h... 
+DEBUG: Creating `/tmp/conftestjgg25zoh.cpp` with content:
+DEBUG: | #include <sys/socket.h>
+DEBUG: | #include <linux/if_addr.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestjgg25zoh.cpp -c`
+INFO: yes
+INFO: checking for linux/rtnetlink.h... 
+DEBUG: Creating `/tmp/conftestkk5nf8_2.cpp` with content:
+DEBUG: | #include <sys/socket.h>
+DEBUG: | #include <linux/rtnetlink.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestkk5nf8_2.cpp -c`
+INFO: yes
+INFO: checking for sys/queue.h... 
+DEBUG: Creating `/tmp/conftestv3qr4us5.cpp` with content:
+DEBUG: | #include <sys/queue.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestv3qr4us5.cpp -c`
+INFO: yes
+INFO: checking for sys/types.h... 
+DEBUG: Creating `/tmp/conftestengybgtj.cpp` with content:
+DEBUG: | #include <sys/types.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestengybgtj.cpp -c`
+INFO: yes
+INFO: checking for netinet/in.h... 
+DEBUG: Creating `/tmp/conftesttq9yjk2t.cpp` with content:
+DEBUG: | #include <netinet/in.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftesttq9yjk2t.cpp -c`
+INFO: yes
+INFO: checking for byteswap.h... 
+DEBUG: Creating `/tmp/conftestagz_l5r9.cpp` with content:
+DEBUG: | #include <byteswap.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestagz_l5r9.cpp -c`
+INFO: yes
+INFO: checking for memfd_create in sys/mman.h... 
+DEBUG: Creating `/tmp/conftestyuxwreep.cpp` with content:
+DEBUG: | #include <sys/mman.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | memfd_create("", 0);
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestyuxwreep.cpp -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | /tmp/conftestyuxwreep.cpp:5:1: error: use of undeclared identifier 'memfd_create'
+DEBUG: |     5 | memfd_create("", 0);
+DEBUG: |       | ^
+DEBUG: | 1 error generated.
+INFO: no
+INFO: checking for clock_gettime(CLOCK_MONOTONIC)... 
+DEBUG: Creating `/tmp/conftestm1p0g3rf.cpp` with content:
+DEBUG: | #include <time.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | struct timespec ts; clock_gettime(CLOCK_MONOTONIC, &ts);
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestm1p0g3rf.cpp -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for res_ninit()... 
+DEBUG: Creating `/tmp/conftest_lpvtvmp.cpp` with content:
+DEBUG: | #include <sys/types.h>
+DEBUG: | #include <netinet/in.h>
+DEBUG: | #include <arpa/nameser.h>
+DEBUG: | #include <resolv.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | int foo = res_ninit(&_res);
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest_lpvtvmp.cpp -D_BSD_SOURCE=1 -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for dladdr... 
+DEBUG: Creating `/tmp/conftestbv69omez.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char dladdr();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | dladdr();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestbv69omez.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | ld.lld: error: undefined symbol: dladdr
+DEBUG: | >>> referenced by conftestbv69omez.c
+DEBUG: | >>>               /tmp/conftestbv69omez-7a5d61.o:(main)
+DEBUG: | clang: error: linker command failed with exit code 1 (use -v to see invocation)
+INFO: no
+INFO: checking for dladdr in -ldl... 
+DEBUG: Creating `/tmp/conftestx8bu23pl.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char dladdr();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | dladdr();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestx8bu23pl.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0 -ldl`
+INFO: yes
+INFO: checking for dlfcn.h... 
+DEBUG: Creating `/tmp/conftestnj8bnpuk.cpp` with content:
+DEBUG: | #include <dlfcn.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestnj8bnpuk.cpp -c`
+INFO: yes
+INFO: checking for dlopen in -ldl... 
+DEBUG: Creating `/tmp/conftestg_x9u3vt.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char dlopen();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | dlopen();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestg_x9u3vt.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0 -ldl`
+INFO: yes
+INFO: checking for gethostbyname_r in -lc_r... 
+DEBUG: Creating `/tmp/conftest9ybvdzxu.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char gethostbyname_r();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | gethostbyname_r();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest9ybvdzxu.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0 -lc_r`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | ld.lld: error: unable to find library -lc_r
+DEBUG: | clang: error: linker command failed with exit code 1 (use -v to see invocation)
+INFO: no
+INFO: checking for socket in -lsocket... 
+DEBUG: Creating `/tmp/conftesto1bx0a58.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char socket();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | socket();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftesto1bx0a58.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0 -lsocket`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | ld.lld: error: unable to find library -lsocket
+DEBUG: | clang: error: linker command failed with exit code 1 (use -v to see invocation)
+INFO: no
+INFO: checking for pthread_create... 
+DEBUG: Creating `/tmp/conftestd_yl7v8u.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char pthread_create();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | pthread_create();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestd_yl7v8u.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | ld.lld: error: undefined symbol: pthread_create
+DEBUG: | >>> referenced by conftestd_yl7v8u.c
+DEBUG: | >>>               /tmp/conftestd_yl7v8u-6abc99.o:(main)
+DEBUG: | clang: error: linker command failed with exit code 1 (use -v to see invocation)
+INFO: no
+INFO: checking for pthread_create in -lpthread... 
+DEBUG: Creating `/tmp/conftest342jjsnl.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char pthread_create();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | pthread_create();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest342jjsnl.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0 -lpthread`
+INFO: yes
+INFO: checking for pthread.h... 
+DEBUG: Creating `/tmp/conftests72ltaop.cpp` with content:
+DEBUG: | #include <pthread.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftests72ltaop.cpp -c`
+INFO: yes
+INFO: checking whether the C compiler supports -pthread... 
+DEBUG: Creating `/tmp/conftestt3lmf76_.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestt3lmf76_.c -Werror -pthread -Wno-error=unused-command-line-argument -c`
+INFO: yes
+DEBUG: Creating `/tmp/conftest6eh2zen5.cpp` with content:
+DEBUG: | #include <cstdint>
+DEBUG: | #include <atomic>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | std::atomic<uint64_t> foo; foo = 1;
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest6eh2zen5.cpp -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: checking whether 64-bits std::atomic requires -latomic... 
+INFO: no
+INFO: checking whether the C compiler supports -Wbitfield-enum-conversion... 
+DEBUG: Creating `/tmp/conftestn2fukqx4.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestn2fukqx4.c -Werror -Wbitfield-enum-conversion -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wbitfield-enum-conversion... 
+DEBUG: Creating `/tmp/conftestxypqgvj1.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestxypqgvj1.cpp -Werror -Wbitfield-enum-conversion -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wformat-type-confusion... 
+DEBUG: Creating `/tmp/conftestui1qzpvm.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestui1qzpvm.c -Werror -Wformat-type-confusion -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wformat-type-confusion... 
+DEBUG: Creating `/tmp/conftest3tuuvmlp.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest3tuuvmlp.cpp -Werror -Wformat-type-confusion -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wshadow-field-in-constructor-modified... 
+DEBUG: Creating `/tmp/conftestnskcsxrl.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestnskcsxrl.c -Werror -Wshadow-field-in-constructor-modified -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wshadow-field-in-constructor-modified... 
+DEBUG: Creating `/tmp/conftest9kgv2la3.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest9kgv2la3.cpp -Werror -Wshadow-field-in-constructor-modified -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wtautological-constant-in-range-compare... 
+DEBUG: Creating `/tmp/conftestv9v5d8hz.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestv9v5d8hz.c -Werror -Wtautological-constant-in-range-compare -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wtautological-constant-in-range-compare... 
+DEBUG: Creating `/tmp/conftestj1y6dqaj.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestj1y6dqaj.cpp -Werror -Wtautological-constant-in-range-compare -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-error=tautological-type-limit-compare... 
+DEBUG: Creating `/tmp/conftestefl938nm.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestefl938nm.c -Werror -Wno-error=tautological-type-limit-compare -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-error=tautological-type-limit-compare... 
+DEBUG: Creating `/tmp/conftestji0kry4u.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestji0kry4u.cpp -Werror -Wno-error=tautological-type-limit-compare -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wunreachable-code-return... 
+DEBUG: Creating `/tmp/conftestgjs__k_0.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestgjs__k_0.c -Werror -Wunreachable-code-return -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wunreachable-code-return... 
+DEBUG: Creating `/tmp/conftest9q3vfy4d.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest9q3vfy4d.cpp -Werror -Wunreachable-code-return -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wunused-but-set-parameter... 
+DEBUG: Creating `/tmp/conftest_lvmaq5l.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest_lvmaq5l.c -Werror -Wunused-but-set-parameter -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wunused-but-set-parameter... 
+DEBUG: Creating `/tmp/conftest8xyvu2b3.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest8xyvu2b3.cpp -Werror -Wunused-but-set-parameter -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wclass-varargs... 
+DEBUG: Creating `/tmp/conftestmbkwzmc5.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestmbkwzmc5.c -Werror -Wclass-varargs -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wclass-varargs... 
+DEBUG: Creating `/tmp/conftest_6b10pp5.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest_6b10pp5.cpp -Werror -Wclass-varargs -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wempty-init-stmt... 
+DEBUG: Creating `/tmp/conftestcvnmvoyv.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestcvnmvoyv.cpp -Werror -Wempty-init-stmt -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wfloat-overflow-conversion... 
+DEBUG: Creating `/tmp/conftestmgglvtvx.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestmgglvtvx.c -Werror -Wfloat-overflow-conversion -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wfloat-overflow-conversion... 
+DEBUG: Creating `/tmp/conftesty_to1012.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftesty_to1012.cpp -Werror -Wfloat-overflow-conversion -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wfloat-zero-conversion... 
+DEBUG: Creating `/tmp/conftestdhbnz153.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestdhbnz153.c -Werror -Wfloat-zero-conversion -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wfloat-zero-conversion... 
+DEBUG: Creating `/tmp/conftestq9ocr8_g.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestq9ocr8_g.cpp -Werror -Wfloat-zero-conversion -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wloop-analysis... 
+DEBUG: Creating `/tmp/conftest8sn4cwwj.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest8sn4cwwj.c -Werror -Wloop-analysis -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wloop-analysis... 
+DEBUG: Creating `/tmp/conftest4d8tk6vj.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest4d8tk6vj.cpp -Werror -Wloop-analysis -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-range-loop-analysis... 
+DEBUG: Creating `/tmp/conftestc4a72yyu.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestc4a72yyu.c -Werror -Wrange-loop-analysis -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-range-loop-analysis... 
+DEBUG: Creating `/tmp/conftestk4hdwhqi.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestk4hdwhqi.cpp -Werror -Wrange-loop-analysis -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wcomma-subscript... 
+DEBUG: Creating `/tmp/conftest9d4l7lc8.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest9d4l7lc8.cpp -Werror -Wcomma-subscript -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Wcomma-subscript'; did you mean '-Wchar-subscripts'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C compiler supports -Wenum-compare-conditional... 
+DEBUG: Creating `/tmp/conftestc5c81omn.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestc5c81omn.c -Werror -Wenum-compare-conditional -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wenum-compare-conditional... 
+DEBUG: Creating `/tmp/conftest5w9805i0.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest5w9805i0.cpp -Werror -Wenum-compare-conditional -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wenum-float-conversion... 
+DEBUG: Creating `/tmp/conftestbp6ytfrn.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestbp6ytfrn.c -Werror -Wenum-float-conversion -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wenum-float-conversion... 
+DEBUG: Creating `/tmp/conftesthwhu7i1r.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftesthwhu7i1r.cpp -Werror -Wenum-float-conversion -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wvolatile... 
+DEBUG: Creating `/tmp/conftesta16q7fhu.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftesta16q7fhu.cpp -Werror -Wvolatile -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Wvolatile' [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C++ compiler supports -Wno-deprecated-anon-enum-enum-conversion... 
+DEBUG: Creating `/tmp/conftestqfvgv_ls.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestqfvgv_ls.cpp -Werror -Wdeprecated-anon-enum-enum-conversion -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-deprecated-enum-enum-conversion... 
+DEBUG: Creating `/tmp/conftest8ctjffg9.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest8ctjffg9.cpp -Werror -Wdeprecated-enum-enum-conversion -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-deprecated-this-capture... 
+DEBUG: Creating `/tmp/conftestc__93l97.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestc__93l97.cpp -Werror -Wdeprecated-this-capture -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wcomma... 
+DEBUG: Creating `/tmp/conftestidr3wlun.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestidr3wlun.cpp -Werror -Wcomma -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wduplicated-cond... 
+DEBUG: Creating `/tmp/conftestio45qnhp.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestio45qnhp.c -Werror -Wduplicated-cond -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Wduplicated-cond' [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C++ compiler supports -Wduplicated-cond... 
+DEBUG: Creating `/tmp/conftestmqjzrxu2.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestmqjzrxu2.cpp -Werror -Wduplicated-cond -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Wduplicated-cond' [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C++ compiler supports -Wimplicit-fallthrough... 
+DEBUG: Creating `/tmp/conftestajbuv8el.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestajbuv8el.cpp -Werror -Wimplicit-fallthrough -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wlogical-op... 
+DEBUG: Creating `/tmp/conftestlzc1mans.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestlzc1mans.c -Werror -Wlogical-op -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Wlogical-op'; did you mean '-Wlong-long'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C++ compiler supports -Wlogical-op... 
+DEBUG: Creating `/tmp/conftestkiovdonn.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestkiovdonn.cpp -Werror -Wlogical-op -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Wlogical-op'; did you mean '-Wlong-long'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C compiler supports -Wstring-conversion... 
+DEBUG: Creating `/tmp/conftest11vrwj6y.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest11vrwj6y.c -Werror -Wstring-conversion -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wstring-conversion... 
+DEBUG: Creating `/tmp/conftestfmk2imbd.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestfmk2imbd.cpp -Werror -Wstring-conversion -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-inline-new-delete... 
+DEBUG: Creating `/tmp/conftestk8nhzn4p.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestk8nhzn4p.cpp -Werror -Winline-new-delete -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-error=maybe-uninitialized... 
+DEBUG: Creating `/tmp/conftest00xxxpdv.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest00xxxpdv.c -Werror -Wno-error=maybe-uninitialized -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Werror=maybe-uninitialized'; did you mean '-Werror=uninitialized'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C++ compiler supports -Wno-error=maybe-uninitialized... 
+DEBUG: Creating `/tmp/conftestkqr_9zba.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestkqr_9zba.cpp -Werror -Wno-error=maybe-uninitialized -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Werror=maybe-uninitialized'; did you mean '-Werror=uninitialized'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C compiler supports -Wno-error=deprecated-declarations... 
+DEBUG: Creating `/tmp/conftestt47pt66v.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestt47pt66v.c -Werror -Wno-error=deprecated-declarations -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-error=deprecated-declarations... 
+DEBUG: Creating `/tmp/conftestjrox7hto.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestjrox7hto.cpp -Werror -Wno-error=deprecated-declarations -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-error=array-bounds... 
+DEBUG: Creating `/tmp/conftest8gkwdkh5.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest8gkwdkh5.c -Werror -Wno-error=array-bounds -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-error=array-bounds... 
+DEBUG: Creating `/tmp/conftestdgcyqzi6.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestdgcyqzi6.cpp -Werror -Wno-error=array-bounds -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-error=free-nonheap-object... 
+DEBUG: Creating `/tmp/conftestwwqhqv5r.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestwwqhqv5r.c -Werror -Wno-error=free-nonheap-object -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-error=free-nonheap-object... 
+DEBUG: Creating `/tmp/conftestb24wit1n.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestb24wit1n.cpp -Werror -Wno-error=free-nonheap-object -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-multistatement-macros... 
+DEBUG: Creating `/tmp/conftest6rfj7064.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest6rfj7064.c -Werror -Wmultistatement-macros -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Wmultistatement-macros'; did you mean '-Wunused-macros'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C++ compiler supports -Wno-multistatement-macros... 
+DEBUG: Creating `/tmp/conftest4ecoywfn.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest4ecoywfn.cpp -Werror -Wmultistatement-macros -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Wmultistatement-macros'; did you mean '-Wunused-macros'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C compiler supports -Wno-error=class-memaccess... 
+DEBUG: Creating `/tmp/conftestny850y02.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestny850y02.c -Werror -Wno-error=class-memaccess -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Werror=class-memaccess'; did you mean '-Werror=class-varargs'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C++ compiler supports -Wno-error=class-memaccess... 
+DEBUG: Creating `/tmp/conftestasgej_zv.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestasgej_zv.cpp -Werror -Wno-error=class-memaccess -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Werror=class-memaccess'; did you mean '-Werror=class-varargs'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C compiler supports -Wno-error=atomic-alignment... 
+DEBUG: Creating `/tmp/conftestz55z9jrw.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestz55z9jrw.c -Werror -Wno-error=atomic-alignment -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-error=atomic-alignment... 
+DEBUG: Creating `/tmp/conftestx42h1q61.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestx42h1q61.cpp -Werror -Wno-error=atomic-alignment -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-error=deprecated-builtins... 
+DEBUG: Creating `/tmp/conftestb44pwgkj.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestb44pwgkj.c -Werror -Wno-error=deprecated-builtins -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-error=deprecated-builtins... 
+DEBUG: Creating `/tmp/conftestyp1m3d9i.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestyp1m3d9i.cpp -Werror -Wno-error=deprecated-builtins -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wformat... 
+DEBUG: Creating `/tmp/conftestyupgl9he.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestyupgl9he.c -Werror -Wformat -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wformat... 
+DEBUG: Creating `/tmp/conftestqptrpq97.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestqptrpq97.cpp -Werror -Wformat -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wformat-security... 
+DEBUG: Creating `/tmp/conftest7a3kx3l3.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest7a3kx3l3.c -Werror -Wformat-security -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wformat-security... 
+DEBUG: Creating `/tmp/conftestifmdskax.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestifmdskax.cpp -Werror -Wformat-security -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wformat-overflow=2... 
+DEBUG: Creating `/tmp/conftestw9dvy35k.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestw9dvy35k.c -Werror -Wformat-overflow=2 -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Wformat-overflow=2'; did you mean '-Wformat-overflow'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C++ compiler supports -Wformat-overflow=2... 
+DEBUG: Creating `/tmp/conftestunq35epu.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestunq35epu.cpp -Werror -Wformat-overflow=2 -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | error: unknown warning option '-Wformat-overflow=2'; did you mean '-Wformat-overflow'? [-Werror,-Wunknown-warning-option]
+INFO: no
+INFO: checking whether the C compiler supports -Werror=implicit-function-declaration... 
+DEBUG: Creating `/tmp/conftestetokhfyb.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestetokhfyb.c -Werror=implicit-function-declaration -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-psabi... 
+DEBUG: Creating `/tmp/conftest8yztenqh.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest8yztenqh.c -Werror -Wpsabi -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-psabi... 
+DEBUG: Creating `/tmp/conftest8wct_pgo.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest8wct_pgo.cpp -Werror -Wpsabi -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wthread-safety... 
+DEBUG: Creating `/tmp/conftestaauvrr9b.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestaauvrr9b.c -Werror -Wthread-safety -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wthread-safety... 
+DEBUG: Creating `/tmp/conftestbgdshyb9.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestbgdshyb9.cpp -Werror -Wthread-safety -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-error=builtin-macro-redefined... 
+DEBUG: Creating `/tmp/conftestpi2ejr02.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestpi2ejr02.c -Werror -Wno-error=builtin-macro-redefined -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-error=builtin-macro-redefined... 
+DEBUG: Creating `/tmp/conftestdepcei4p.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestdepcei4p.cpp -Werror -Wno-error=builtin-macro-redefined -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-vla-cxx-extension... 
+DEBUG: Creating `/tmp/conftest5ejkpsvo.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest5ejkpsvo.cpp -Werror -Wvla-cxx-extension -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -Wno-unknown-warning-option... 
+DEBUG: Creating `/tmp/conftest7qajpgtt.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest7qajpgtt.c -Werror -Wunknown-warning-option -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -Wno-unknown-warning-option... 
+DEBUG: Creating `/tmp/conftestz2d6hm1c.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestz2d6hm1c.cpp -Werror -Wunknown-warning-option -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -fno-sized-deallocation... 
+DEBUG: Creating `/tmp/conftest59p8wa4n.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest59p8wa4n.cpp -Werror -fno-sized-deallocation -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -fno-aligned-new... 
+DEBUG: Creating `/tmp/conftestudk3d00j.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestudk3d00j.cpp -Werror -fno-aligned-new -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether we're trying to statically link with libstdc++... 
+DEBUG: Creating `/tmp/conftestbkh2ikdj.cpp` with content:
+DEBUG: | 
+DEBUG: |                     #include <iostream>
+DEBUG: |                     int main() { std::cout << 1;}
+DEBUG: |                 
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0 /tmp/conftestbkh2ikdj.cpp -o /tmp/conftestqozn03ol.out`
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/llvm-objdump --private-headers /tmp/conftestqozn03ol.out`
+INFO: no
+INFO: checking whether the C linker supports -Wl,--build-id=uuid... 
+DEBUG: Creating `/tmp/conftestyhog7epc.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestyhog7epc.c -Wl,--build-id=uuid -Wno-error=unused-command-line-argument -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking whether the C assembler supports -Wa,--noexecstack... 
+DEBUG: Creating `/tmp/conftestxg0na8su.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestxg0na8su.c -Wa,--noexecstack -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C linker supports -Wl,-z,noexecstack... 
+DEBUG: Creating `/tmp/conftestt_dzwdv5.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestt_dzwdv5.c -Wl,-z,noexecstack -Wno-error=unused-command-line-argument -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking whether the C linker supports -Wl,-z,text... 
+DEBUG: Creating `/tmp/conftest1as46i56.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest1as46i56.c -Wl,-z,text -Wno-error=unused-command-line-argument -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking whether the C linker supports -Wl,-z,relro... 
+DEBUG: Creating `/tmp/conftests8r6229z.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftests8r6229z.c -Wl,-z,relro -Wno-error=unused-command-line-argument -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking whether the C linker supports -Wl,-z,now... 
+DEBUG: Creating `/tmp/conftestha4533m_.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestha4533m_.c -Wl,-z,now -Wno-error=unused-command-line-argument -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking whether the C linker supports -Wl,-z,nocopyreloc... 
+DEBUG: Creating `/tmp/conftest03c0beb8.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest03c0beb8.c -Wl,-z,nocopyreloc -Wno-error=unused-command-line-argument -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking whether the C assembler supports -fPIC... 
+DEBUG: Creating `/tmp/confteste_hgbtva.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/confteste_hgbtva.c -fPIC -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C compiler supports -fPIC... 
+DEBUG: Creating `/tmp/conftestyvib3fop.c` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestyvib3fop.c -Werror -fPIC -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking whether the C++ compiler supports -fPIC... 
+DEBUG: Creating `/tmp/conftest389bf730.cpp` with content:
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | 
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftest389bf730.cpp -Werror -fPIC -Wno-error=unused-command-line-argument -Wno-error=unused-command-line-argument -c`
+INFO: yes
+INFO: checking what kind of list files are supported by the linker... 
+DEBUG: Creating `/tmp/conftest7z8hy83y.c` with content:
+DEBUG: | int main() {}
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest7z8hy83y.c -c -o /tmp/conftestmxbdcn64.o`
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0 -o /tmp/conftestc5gl8zxk.out -Wl,@/tmp/conftest48tz73jm.list`
+INFO: linkerlist
+INFO: checking for llvm_profdata... 
+DEBUG: llvm_profdata: Looking for llvm-profdata
+INFO: /home/user/.mozbuild/clang/bin/llvm-profdata
+INFO: checking whether llvm-profdata supports 'order' subcommand... 
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/llvm-profdata order --help`
+INFO: yes
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --print-prog-name=llvm-readelf`
+INFO: checking for readelf... 
+DEBUG: readelf: Looking for /home/user/.mozbuild/clang/bin/llvm-readelf
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/llvm-readelf --help`
+INFO: /home/user/.mozbuild/clang/bin/llvm-readelf
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --print-prog-name=llvm-objcopy`
+INFO: checking for objcopy... 
+DEBUG: objcopy: Looking for /home/user/.mozbuild/clang/bin/llvm-objcopy
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/llvm-objcopy --help`
+INFO: /home/user/.mozbuild/clang/bin/llvm-objcopy
+INFO: checking for rustc... 
+DEBUG: _rustc: Looking for rustc
+INFO: /home/user/.cargo/bin/rustc
+INFO: checking for cargo... 
+DEBUG: _cargo: Looking for cargo
+INFO: /home/user/.cargo/bin/cargo
+DEBUG: Executing: `/home/user/.cargo/bin/rustc +stable`
+DEBUG: Executing: `rustup which rustc`
+INFO: Actually using '/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc'
+DEBUG: Executing: `/home/user/.cargo/bin/cargo +stable`
+DEBUG: Executing: `rustup which cargo`
+INFO: Actually using '/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/cargo'
+INFO: checking rustc version... 
+DEBUG: Executing: `/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc --version --verbose`
+INFO: 1.81.0
+INFO: checking cargo version... 
+DEBUG: Executing: `/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/cargo --version --verbose`
+INFO: 1.81.0
+DEBUG: Executing: `/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc --print target-list`
+INFO: checking for rust host triplet... 
+DEBUG: Creating `/tmp/conftestb24rueb7.rs` with content:
+DEBUG: | pub extern fn hello() { println!("Hello world"); }
+DEBUG: Executing: `/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc --crate-type staticlib --target=x86_64-unknown-linux-gnu -o /tmp/conftesttnfbm6w_.rlib /tmp/conftestb24rueb7.rs`
+INFO: x86_64-unknown-linux-gnu
+INFO: checking for rust target triplet... 
+DEBUG: Creating `/tmp/conftestitm2j0ed.rs` with content:
+DEBUG: | pub extern fn hello() { println!("Hello world"); }
+DEBUG: Executing: `/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc --crate-type staticlib --target=x86_64-unknown-linux-gnu -o /tmp/conftestrh0up92o.rlib /tmp/conftestitm2j0ed.rs`
+INFO: x86_64-unknown-linux-gnu
+INFO: checking for rustdoc... 
+DEBUG: rustdoc: Looking for rustdoc
+INFO: /home/user/.cargo/bin/rustdoc
+INFO: checking for cbindgen... 
+DEBUG: trying cbindgen: /home/user/.mozbuild/cbindgen/cbindgen
+DEBUG: Executing: `/home/user/.mozbuild/cbindgen/cbindgen --version`
+DEBUG: /home/user/.mozbuild/cbindgen/cbindgen has version 0.26.0
+INFO: /home/user/.mozbuild/cbindgen/cbindgen
+INFO: checking for rustfmt... 
+DEBUG: rustfmt: Looking for rustfmt
+INFO: /home/user/.cargo/bin/rustfmt
+INFO: checking for clang for bindgen... 
+INFO: /home/user/.mozbuild/clang/bin/clang++
+INFO: checking for libclang for bindgen... 
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ -print-search-dirs`
+DEBUG: Trying "libclang.so" in "/home/user/.mozbuild/clang/lib"
+INFO: /home/user/.mozbuild/clang/lib/libclang.so
+INFO: checking that libclang is new enough... 
+INFO: yes
+INFO: checking bindgen cflags... 
+INFO: -x c++ -fno-sized-deallocation -fno-aligned-new -DTRACING=1 -DIMPL_LIBXUL -DMOZILLA_INTERNAL_API -DRUST_BINDGEN --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu
+INFO: checking for tm_zone and tm_gmtoff in struct tm... 
+DEBUG: Creating `/tmp/conftestvx_qwy7n.c` with content:
+DEBUG: | #include <time.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | struct tm tm; tm.tm_zone = 0; tm.tm_gmtoff = 1;
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestvx_qwy7n.c -c`
+INFO: yes
+INFO: checking for getpagesize... 
+DEBUG: Creating `/tmp/conftestypo85bqi.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char getpagesize();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | getpagesize();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestypo85bqi.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for gmtime_r... 
+DEBUG: Creating `/tmp/conftestx3_cjd7t.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char gmtime_r();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | gmtime_r();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestx3_cjd7t.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for localtime_r... 
+DEBUG: Creating `/tmp/conftesti7a1cuc7.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char localtime_r();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | localtime_r();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftesti7a1cuc7.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for gettid... 
+DEBUG: Creating `/tmp/conftesto2869xvy.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char gettid();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | gettid();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftesto2869xvy.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | ld.lld: error: undefined symbol: gettid
+DEBUG: | >>> referenced by conftesto2869xvy.c
+DEBUG: | >>>               /tmp/conftesto2869xvy-d07968.o:(main)
+DEBUG: | >>> did you mean: getutid
+DEBUG: | >>> defined in: /home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu/libc.so.6
+DEBUG: | clang: error: linker command failed with exit code 1 (use -v to see invocation)
+INFO: no
+INFO: checking for setpriority... 
+DEBUG: Creating `/tmp/conftest4nj1jamp.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char setpriority();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | setpriority();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest4nj1jamp.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for syscall... 
+DEBUG: Creating `/tmp/conftestx4zhccj4.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char syscall();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | syscall();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestx4zhccj4.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for getc_unlocked... 
+DEBUG: Creating `/tmp/conftestzu5gvlup.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char getc_unlocked();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | getc_unlocked();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestzu5gvlup.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for pthread_getname_np... 
+DEBUG: Creating `/tmp/conftest50b6o56i.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char pthread_getname_np();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | pthread_getname_np();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest50b6o56i.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | ld.lld: error: undefined symbol: pthread_getname_np
+DEBUG: | >>> referenced by conftest50b6o56i.c
+DEBUG: | >>>               /tmp/conftest50b6o56i-97fb06.o:(main)
+DEBUG: | clang: error: linker command failed with exit code 1 (use -v to see invocation)
+INFO: no
+INFO: checking for pthread_get_name_np... 
+DEBUG: Creating `/tmp/conftest47jgaw41.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char pthread_get_name_np();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | pthread_get_name_np();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest47jgaw41.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | ld.lld: error: undefined symbol: pthread_get_name_np
+DEBUG: | >>> referenced by conftest47jgaw41.c
+DEBUG: | >>>               /tmp/conftest47jgaw41-813b6c.o:(main)
+DEBUG: | clang: error: linker command failed with exit code 1 (use -v to see invocation)
+INFO: no
+INFO: checking for strerror... 
+DEBUG: Creating `/tmp/conftesti13otuhr.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char strerror();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | strerror();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftesti13otuhr.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+DEBUG: | /tmp/conftesti13otuhr.c:4:6: warning: incompatible redeclaration of library function 'strerror' [-Wincompatible-library-redeclaration]
+DEBUG: |     4 | char strerror();
+DEBUG: |       |      ^
+DEBUG: | /tmp/conftesti13otuhr.c:4:6: note: 'strerror' is a builtin with type 'char *(int)'
+DEBUG: | 1 warning generated.
+INFO: yes
+INFO: checking for nl_langinfo and CODESET... 
+DEBUG: Creating `/tmp/conftestfyinukyz.cpp` with content:
+DEBUG: | #include <langinfo.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | char* cs = nl_langinfo(CODESET);
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestfyinukyz.cpp -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for __cxa_demangle... 
+DEBUG: Creating `/tmp/conftestt3p0xiq3.cpp` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | extern "C" char __cxa_demangle();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | __cxa_demangle();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang++ --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu /tmp/conftestt3p0xiq3.cpp -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for _getc_nolock... 
+DEBUG: Creating `/tmp/conftest_sah99hr.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char _getc_nolock();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | _getc_nolock();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest_sah99hr.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+DEBUG: The command returned non-zero exit status 1.
+DEBUG: Its error output was:
+DEBUG: | ld.lld: error: undefined symbol: _getc_nolock
+DEBUG: | >>> referenced by conftest_sah99hr.c
+DEBUG: | >>>               /tmp/conftest_sah99hr-b78bf5.o:(main)
+DEBUG: | clang: error: linker command failed with exit code 1 (use -v to see invocation)
+INFO: no
+INFO: checking for localeconv... 
+DEBUG: Creating `/tmp/conftest2wuaid06.c` with content:
+DEBUG: | /* Override any gcc2 internal prototype to avoid an error.  */
+DEBUG: | /* We use char because int might match the return type of a gcc2
+DEBUG: |     builtin and then its argument prototype would still apply.  */
+DEBUG: | char localeconv();
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | localeconv();
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftest2wuaid06.c -fuse-ld=lld -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu -Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -Wl,-O0`
+INFO: yes
+INFO: checking for valid C compiler optimization flags... 
+DEBUG: Creating `/tmp/conftestf6f5masd.c` with content:
+DEBUG: | #include <stdio.h>
+DEBUG: | int
+DEBUG: | main(void)
+DEBUG: | {
+DEBUG: | puts("demat");
+DEBUG: |   ;
+DEBUG: |   return 0;
+DEBUG: | }
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu -std=gnu99 /tmp/conftestf6f5masd.c -O2 -c`
+INFO: yes
+INFO: checking for awk... 
+DEBUG: awk: Looking for gawk
+INFO: /usr/bin/gawk
+INFO: checking for gmake... 
+DEBUG: gmake: Looking for gmake
+INFO: /usr/bin/gmake
+INFO: checking for watchman... 
+DEBUG: Executing: `/usr/bin/watchman --version`
+INFO: /usr/bin/watchman
+INFO: checking for watchman version... 
+INFO: 4.9.0
+INFO: checking for xargs... 
+DEBUG: xargs: Looking for xargs
+INFO: /usr/bin/xargs
+INFO: checking for rpmbuild... 
+DEBUG: rpmbuild: Looking for rpmbuild
+INFO: not found
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --print-prog-name=dsymutil`
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --print-prog-name=llvm-otool`
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --print-prog-name=llvm-install-name-tool`
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/clang --print-prog-name=llvm-strip`
+INFO: checking for strip... 
+DEBUG: strip: Looking for /home/user/.mozbuild/clang/bin/llvm-strip
+DEBUG: Executing: `/home/user/.mozbuild/clang/bin/llvm-strip --help`
+INFO: /home/user/.mozbuild/clang/bin/llvm-strip
+INFO: checking for zlib >= 1.2.3... 
+DEBUG: Executing: `/home/user/.mozbuild/pkgconf/pkg-config --errors-to-stdout --print-errors 'zlib >= 1.2.3'`
+INFO: yes
+INFO: checking MOZ_ZLIB_CFLAGS... 
+DEBUG: Executing: `/home/user/.mozbuild/pkgconf/pkg-config --shared --dont-define-prefix --cflags 'zlib >= 1.2.3'`
+INFO: -I/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/include
+INFO: checking MOZ_ZLIB_LIBS... 
+DEBUG: Executing: `/home/user/.mozbuild/pkgconf/pkg-config --shared --dont-define-prefix --libs 'zlib >= 1.2.3'`
+INFO: -L/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu -lz
+INFO: checking for m4... 
+DEBUG: m4: Looking for gm4
+DEBUG: m4: Looking for m4
+INFO: /usr/bin/m4
+DEBUG: Injecting the following to old-configure:
+DEBUG: | _topsrcdir=/home/user/Documents/GitHub/pack-o-mat/mozilla-unified
+DEBUG: | MOZ_BUILD_APP=js
+DEBUG: | MOZ_APP_VERSION=132.0a1
+DEBUG: | MOZ_DEBUG=''
+DEBUG: | JS_STANDALONE=1
+DEBUG: Running /usr/bin/sh /home/user/Documents/GitHub/pack-o-mat/mozilla-unified/js/src/old-configure --prefix=/usr/local --includedir=/usr/local/include --libdir=/usr/local/lib
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+INFO: Creating config.status

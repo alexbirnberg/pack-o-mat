@@ -1,0 +1,8 @@
+[
+    "-C",
+    "debuginfo=2",
+    "-C",
+    "force-frame-pointers=yes",
+    "--cap-lints",
+    "warn"
+]
