@@ -1,4 +1,4 @@
 *.o
 *.a
 *_DBG.OBJ
-.vscode/*
+.vscode/
