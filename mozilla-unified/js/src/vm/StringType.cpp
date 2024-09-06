@@ -2054,9 +2054,7 @@ template <AllowGC allowGC, typename CharT>
 JSLinearString* NewStringCopyNDontDeflateNonStaticValidLength(JSContext* cx,
                                                               const CharT* s,
                                                               size_t n,
-                                                              gc::Heap heap) {
-  //wprintf(L"s = #%s# n = %lld\n", s, n);
-                                                            
+                                                              gc::Heap heap) {                                                            
   if (JSInlineString::lengthFits<CharT>(n)) {
     return NewInlineString<allowGC>(cx, mozilla::Range<const CharT>(s, n),
                                     heap);
