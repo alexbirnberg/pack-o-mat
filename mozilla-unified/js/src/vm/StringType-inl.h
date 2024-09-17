@@ -63,12 +63,16 @@ static MOZ_ALWAYS_INLINE JSInlineString* NewInlineString(
 
   size_t len = chars.length();
   CharT* storage;
+
   JSInlineString* str = AllocateInlineString<allowGC>(cx, len, &storage, heap);
   if (!str) {
     return nullptr;
   }
 
   mozilla::PodCopy(storage, chars.begin().get(), len);
+
+  str->dump();
+
   return str;
 }
 
@@ -107,6 +111,9 @@ static MOZ_ALWAYS_INLINE JSInlineString* NewInlineString(
     constexpr size_t toCopy = std::min(N, MaxLength) * sizeof(CharT);
     std::memcpy(storage, chars, toCopy);
   }
+
+  str->dump();
+
   return str;
 }
 
@@ -122,6 +129,9 @@ static MOZ_ALWAYS_INLINE JSAtom* NewInlineAtom(JSContext* cx,
   }
 
   mozilla::PodCopy(storage, chars, length);
+
+  str->dump();
+  
   return str;
 }
 
@@ -140,6 +150,9 @@ static MOZ_ALWAYS_INLINE JSInlineString* NewInlineString(
 
   JS::AutoCheckCannotGC nogc;
   mozilla::PodCopy(chars, base->chars<CharT>(nogc) + start, length);
+
+  s->dump();
+
   return s;
 }
 
@@ -369,7 +382,13 @@ MOZ_ALWAYS_INLINE JSRope* JSRope::new_(
   if (MOZ_UNLIKELY(!validateLengthInternal<allowGC>(cx, length))) {
     return nullptr;
   }
-  return cx->newCell<JSRope, allowGC>(heap, left, right, length);
+  JSRope *str = cx->newCell<JSRope, allowGC>(heap, left, right, length);
+
+  if (str != nullptr) {
+    str->dump();
+  }
+
+  return str;
 }
 
 inline JSDependentString::JSDependentString(JSLinearString* base, size_t start,
@@ -413,11 +432,14 @@ MOZ_ALWAYS_INLINE JSLinearString* JSDependentString::new_(
   JSDependentString* str =
       cx->newCell<JSDependentString, js::NoGC>(heap, baseArg, start, length);
   if (str) {
+    str->dump();
     return str;
   }
 
   JS::Rooted<JSLinearString*> base(cx, baseArg);
-  return cx->newCell<JSDependentString>(heap, base, start, length);
+  str = cx->newCell<JSDependentString>(heap, base, start, length);
+  str->dump();
+  return str;
 }
 
 inline JSLinearString::JSLinearString(const char16_t* chars, size_t length,
@@ -530,6 +552,8 @@ MOZ_ALWAYS_INLINE JSLinearString* JSLinearString::newValidLength(
   // Either the tenured Cell or the nursery's registry owns the chars now.
   chars.release();
 
+  str->dump();
+
   return str;
 }
 
@@ -554,6 +578,8 @@ MOZ_ALWAYS_INLINE JSAtom* JSAtom::newValidLength(JSContext* cx,
   MOZ_ASSERT(str->isTenured());
   cx->zone()->addCellMemory(str, length * sizeof(CharT),
                             js::MemoryUse::StringContents);
+
+  str->dump();
 
   return str;
 }
@@ -676,6 +702,8 @@ MOZ_ALWAYS_INLINE JSExternalString* JSExternalString::newImpl(
 
   MOZ_ASSERT(str->isTenured());
   js::AddCellMemory(str, nbytes, js::MemoryUse::StringContents);
+
+  str->dump();
 
   return str;
 }

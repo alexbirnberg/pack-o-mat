@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 const fs = require("fs");
+const { exit } = require("process");
 const ts = require("typescript");
 
 const payloads = [
@@ -34,8 +35,9 @@ const payloads = [
 module.exports = {
   name: "typescript",
   fn() {
-    return payloads.map(({ input, transpileOptions }) =>
+    payloads.map(({ input, transpileOptions }) =>
       ts.transpileModule(input, transpileOptions)
     );
+    throw Error("XXX");
   }
 };

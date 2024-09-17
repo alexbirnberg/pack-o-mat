@@ -3,34 +3,34 @@
 ```
 C++ type                     operations+fields / invariants+properties
 ==========================   =========================================
-JSString (abstract)          get(Latin1|TwoByte)CharsZ, get(Latin1|TwoByte)Chars, length / -
+JSString (abstract)          get(Latin1|TwoByte)CharsZ, get(Latin1|TwoByte)Chars, length / -    N/A
  | \
- | JSRope                    leftChild, rightChild / -
+ | JSRope                    leftChild, rightChild / -                                          XXX
  |
-JSLinearString               latin1Chars, twoByteChars / -
+JSLinearString               latin1Chars, twoByteChars / -                                      OK
  |
- +-- JSDependentString       base / -
+ +-- JSDependentString       base / -                                                           OK
  |   |
- |   +-- JSAtomRefString     - / base points to an atom
+ |   +-- JSAtomRefString     - / base points to an atom                                         N/A
  |
- +-- JSExternalString        - / char array memory managed by embedding
+ +-- JSExternalString        - / char array memory managed by embedding                         OK
  |
- +-- JSExtensibleString      - / tracks total buffer capacity (including current text)
+ +-- JSExtensibleString      - / tracks total buffer capacity (including current text)          OK
  |
- +-- JSInlineString (abstract) - / chars stored in header
+ +-- JSInlineString (abstract) - / chars stored in header                                       OK
  |   |
- |   +-- JSThinInlineString  - / header is normal
+ |   +-- JSThinInlineString  - / header is normal                                               OK
  |   |
- |   +-- JSFatInlineString   - / header is fat
+ |   +-- JSFatInlineString   - / header is fat                                                  OK
  |
-JSAtom (abstract)            - / string equality === pointer equality
+JSAtom (abstract)            - / string equality === pointer equality                           N/A
  |  |
- |  +-- js::NormalAtom       JSLinearString + atom hash code / -
+ |  +-- js::NormalAtom       JSLinearString + atom hash code / -                                OK
  |  |   |
- |  |   +-- js::ThinInlineAtom
- |  |                        possibly larger JSThinInlineString + atom hash code / -
+ |  |   +-- js::ThinInlineAtom                                                                  OK
+ |  |                        possibly larger JSThinInlineString + atom hash code / -       
  |  |
- |  +-- js::FatInlineAtom    JSFatInlineString w/atom hash code / -
+ |  +-- js::FatInlineAtom    JSFatInlineString w/atom hash code / -                             OK
  |
-js::PropertyName             - / chars don't contain an index (uint32_t)
+js::PropertyName             - / chars don't contain an index (uint32_t)                        N/A
 ```

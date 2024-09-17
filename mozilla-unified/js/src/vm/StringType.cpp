@@ -601,7 +601,10 @@ JSExtensibleString& JSLinearString::makeExtensible(size_t capacity) {
   setLengthAndFlags(length(), flags() | EXTENSIBLE_FLAGS);
   d.s.u3.capacity = capacity;
   js::AddCellMemory(this, allocSize(), js::MemoryUse::StringContents);
-  return asExtensible();
+
+  JSExtensibleString& ext = asExtensible();
+  ext.dump();
+  return ext;
 }
 
 template <typename CharT>
@@ -1349,6 +1352,8 @@ JSString* js::ConcatStrings(
       }
     }
 
+    str->dump();
+
     return str;
   }
 
@@ -1920,6 +1925,9 @@ static MOZ_ALWAYS_INLINE JSInlineString* NewInlineStringDeflated(
 
   MOZ_ASSERT(CanStoreCharsAsLatin1(chars.begin().get(), len));
   FillFromCompatible(storage, chars.begin().get(), len);
+
+  str->dump();
+
   return str;
 }
 
@@ -1962,6 +1970,9 @@ static MOZ_ALWAYS_INLINE JSAtom* NewInlineAtomDeflated(JSContext* cx,
 
   MOZ_ASSERT(CanStoreCharsAsLatin1(chars, length));
   FillFromCompatible(storage, chars, length);
+
+  str->dump();
+
   return str;
 }
 
