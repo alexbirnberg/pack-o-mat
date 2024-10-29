@@ -1352,7 +1352,7 @@ JSString* js::ConcatStrings(
       }
     }
 
-    str->dump();
+    //str->dump();
 
     return str;
   }
@@ -1926,7 +1926,7 @@ static MOZ_ALWAYS_INLINE JSInlineString* NewInlineStringDeflated(
   MOZ_ASSERT(CanStoreCharsAsLatin1(chars.begin().get(), len));
   FillFromCompatible(storage, chars.begin().get(), len);
 
-  str->dump();
+  //str->dump();
 
   return str;
 }
@@ -1971,7 +1971,7 @@ static MOZ_ALWAYS_INLINE JSAtom* NewInlineAtomDeflated(JSContext* cx,
   MOZ_ASSERT(CanStoreCharsAsLatin1(chars, length));
   FillFromCompatible(storage, chars, length);
 
-  str->dump();
+  //str->dump();
 
   return str;
 }

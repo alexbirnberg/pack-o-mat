@@ -86,6 +86,7 @@ UNIFIED_SOURCES += [
     "testJSEvaluateScript.cpp",
     "testJSON.cpp",
     "testLargeArrayBuffers.cpp",
+    "testLinearString.cpp",
     "testLookup.cpp",
     "testLooselyEqual.cpp",
     "testMappedArrayBuffer.cpp",
