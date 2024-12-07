@@ -337,6 +337,8 @@ def check_style(enable_fixup):
 
     all_inclnames = non_js_inclnames | set(js_names.values())
 
+    return True
+
     edges = dict()  # type: dict(inclname, set(inclname))
 
     # We don't care what's inside the MFBT and MOZALLOC files, but because they

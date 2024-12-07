@@ -34,3 +34,10 @@ JSAtom (abstract)            - / string equality === pointer equality           
  |
 js::PropertyName             - / chars don't contain an index (uint32_t)                        N/A
 ```
+
+TODO:
+- Evaluate raw performance
+- GC statistics
+- JIT enabled?
+- Allocation site profiling?
+- Other data compressed? (Metaspace) ETH

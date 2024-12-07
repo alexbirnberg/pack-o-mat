@@ -15,7 +15,7 @@ inline uint64_t rdtsc() {
 }
 
 BEGIN_TEST(testLinearString) {
-  static const JS::Latin1Char chars[] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor volutpat velit vel volutpat. Maecenas vestibulum ut risus a dignissim. Pellentesque ullamcorper vulputate lectus, at varius dui sodales eu. Donec commodo lacinia massa, in pretium tellus scelerisque eu. Pellentesque fermentum, metus in tempus rhoncus, turpis arcu gravida leo, et bibendum tortor felis vitae risus. Fusce id sem purus. Duis vel lectus nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ornare mi tortor, non rhoncus erat vehicula vel. Duis ac est est. Sed et fringilla ex. Vestibulum bibendum dolor eu consectetur mollis.";
+  static const JS::Latin1Char chars[] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor volutpat velit vel volutpat. Maecenas vestibulum ut risus a dignissim. Pellentesque ullamcorper vulputate lectus, at varius dui sodales eu. Donec commodo lacinia massa, in pretium tellus scelerisque eu. Pellentesque fermentum, metus in tempus rhoncus, turpis arcu gravida leo, et bibendum tortor felis vitae risus. Fusce id sem purus. Duis vel lectus nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ornare mi tortor, non rhoncus erat vehicula vel. Duis ac est est. Sed et fringilla ex. Vestibulum bibendum dolor eu consectetur mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor volutpat velit vel volutpat. Maecenas vestibulum ut risus a dignissim. Pellentesque ullamcorper vulputate lectus, at varius dui sodales eu. Donec commodo lacinia massa, in pretium tellus scelerisque eu. Pellentesque fermentum, metus in tempus rhoncus, turpis arcu gravida leo, et bibendum tortor felis vitae risus. Fusce id sem purus. Duis vel lectus nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ornare mi tortor, non rhoncus erat vehicula vel. Duis ac est est. Sed et fringilla ex. Vestibulum bibendum dolor eu consectetur mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor volutpat velit vel volutpat. Maecenas vestibulum ut risus a dignissim. Pellentesque ullamcorper vulputate lectus, at varius dui sodales eu. Donec commodo lacinia massa, in pretium tellus scelerisque eu. Pellentesque fermentum, metus in tempus rhoncus, turpis arcu gravida leo, et bibendum tortor felis vitae risus. Fusce id sem purus. Duis vel lectus nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ornare mi tortor, non rhoncus erat vehicula vel. Duis ac est est. Sed et fringilla ex. Vestibulum bibendum dolor eu consectetur mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor volutpat velit vel volutpat. Maecenas vestibulum ut risus a dignissim. Pellentesque ullamcorper vulputate lectus, at varius dui sodales eu. Donec commodo lacinia massa, in pretium tellus scelerisque eu. Pellentesque fermentum, metus in tempus rhoncus, turpis arcu gravida leo, et bibendum tortor felis vitae risus. Fusce id sem purus. Duis vel lectus nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ornare mi tortor, non rhoncus erat vehicula vel. Duis ac est est. Sed et fringilla ex. Vestibulum bibendum dolor eu consectetur mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor volutpat velit vel volutpat. Maecenas vestibulum ut risus a dignissim. Pellentesque ullamcorper vulputate lectus, at varius dui sodales eu. Donec commodo lacinia massa, in pretium tellus scelerisque eu. Pellentesque fermentum, metus in tempus rhoncus, turpis arcu gravida leo, et bibendum tortor felis vitae risus. Fusce id sem purus. Duis vel lectus nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ornare mi tortor, non rhoncus erat vehicula vel. Duis ac est est. Sed et fringilla ex. Vestibulum bibendum dolor eu consectetur mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor volutpat velit vel volutpat. Maecenas vestibulum ut risus a dignissim. Pellentesque ullamcorper vulputate lectus, at varius dui sodales eu. Donec commodo lacinia massa, in pretium tellus scelerisque eu. Pellentesque fermentum, metus in tempus rhoncus, turpis arcu gravida leo, et bibendum tortor felis vitae risus. Fusce id sem purus. Duis vel lectus nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ornare mi tortor, non rhoncus erat vehicula vel. Duis ac est est. Sed et fringilla ex. Vestibulum bibendum dolor eu consectetur mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor volutpat velit vel volutpat. Maecenas vestibulum ut risus a dignissim. Pellentesque ullamcorper vulputate lectus, at varius dui sodales eu. Donec commodo lacinia massa, in pretium tellus scelerisque eu. Pellentesque fermentum, metus in tempus rhoncus, turpis arcu gravida leo, et bibendum tortor felis vitae risus. Fusce id sem purus. Duis vel lectus nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ornare mi tortor, non rhoncus erat vehicula vel. Duis ac est est. Sed et fringilla ex. Vestibulum bibendum dolor eu consectetur mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor volutpat velit vel volutpat. Maecenas vestibulum ut risus a dignissim. Pellentesque ullamcorper vulputate lectus, at varius dui sodales eu. Donec commodo lacinia massa, in pretium tellus scelerisque eu. Pellentesque fermentum, metus in tempus rhoncus, turpis arcu gravida leo, et bibendum tortor felis vitae risus. Fusce id sem purus. Duis vel lectus nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ornare mi tortor, non rhoncus erat vehicula vel. Duis ac est est. Sed et fringilla ex. Vestibulum bibendum dolor eu consectetur mollis.";
   static const size_t len = js_strlen(chars);
   char16_t c;
 
@@ -29,15 +29,21 @@ BEGIN_TEST(testLinearString) {
   Rooted<JSString::OwnedChars<JS::Latin1Char>> owned(cx, std::move(bufferRef), len);
   JS::Rooted<JSLinearString*> str(cx, JSLinearString::new_<CanGC, JS::Latin1Char>(cx, &owned, gc::Heap::Default));
 
-  // nonInlineCharsLatin1  
+  // field = nonInlineCharsLatin1  
+  // 1. Test length
+  printf("\n");
+  printf("  Testing length\n");
+  printf("  length = %zu\n\n", str->length());
 
-  printf("%zu\n", str->length());
-
+  // 2. Test allocation
   JS::AutoCheckCannotGC nogc;
-  printf("%p\n", str->latin1Chars(nogc));
-  str->getChar(cx, 0, &c);
+  printf("  Testing field\n");
+  printf("  field = %p\n\n", str->latin1Chars(nogc));
 
-  printf("%c\n", c);
+  // 3. Test chars
+  printf("  Testing chars\n");
+  str->getChar(cx, 0, &c);
+  printf("  c = %c\n\n", c);
   
   return true;
 }

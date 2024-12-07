@@ -461,6 +461,15 @@ inline JSLinearString::JSLinearString(const JS::Latin1Char* chars,
   d.s.u2.nonInlineCharsLatin1 = chars;
 }
 
+extern "C" {
+  #include "lz4/lz4.h"
+}
+
+#include "gc/Nursery.h"
+#include "gc/Zone.h"
+
+#define PACKOMAT_MIN_SIZE_LIMIT 2000
+
 template <typename CharT>
 inline JSLinearString::JSLinearString(
     JS::MutableHandle<JSString::OwnedChars<CharT>> chars) {
@@ -476,10 +485,69 @@ inline JSLinearString::JSLinearString(
   if (chars.hasStringBuffer()) {
     flags |= HAS_STRING_BUFFER_BIT;
   }
+
+  if (isTenured()) {
+    size_t originalSize, compressedSize, compressedSizeMax;
+    uint8_t *compressedBuf = nullptr, *finalBuf = nullptr;
+    struct packomat_data *data = nullptr;
+    js::AutoEnterOOMUnsafeRegion oomUnsafe;
+
+    if constexpr (std::is_same_v<CharT, char16_t>) {
+      // no UTF-8 compression yet..
+      goto dont_compress;
+    }
+    else {
+      originalSize = chars.length();
+      if (originalSize < PACKOMAT_MIN_SIZE_LIMIT) {
+        goto dont_compress;
+      }
+
+      compressedSizeMax = ::LZ4_compressBound(originalSize);
+      compressedBuf = (uint8_t *)moz_arena_malloc(js::MallocArena, compressedSizeMax);
+      if (compressedBuf == nullptr) {
+        oomUnsafe.crash(compressedSizeMax, "allocating compress buffer");
+      }
+
+      compressedSize = ::LZ4_compress_default((const char *)chars.data(), (char *)compressedBuf, originalSize, compressedSizeMax);
+      if (compressedSize == 0) {
+        goto dont_compress;
+      }
+      if (compressedSize >= originalSize) {
+        goto dont_compress;
+      }
+
+      data = (struct packomat_data *)moz_arena_malloc(js::MallocArena, sizeof(struct packomat_data));
+      if (data == nullptr) {
+        oomUnsafe.crash(compressedSizeMax, "allocating packomat data");
+      }
+
+      finalBuf = (unsigned char *)moz_arena_realloc(js::StringBufferArena, (void *)((char *)chars.data() - 8), compressedSize + 8) + 8;
+      if (finalBuf == nullptr) {
+        oomUnsafe.crash(compressedSizeMax, "reallocating chars buffer");
+      }
+      memcpy(finalBuf, compressedBuf, compressedSize);
+      moz_arena_free(js::MallocArena, compressedBuf);
+    
+      data->originalSize = originalSize;
+      data->compressedSize = compressedSize;
+
+      d.s.u3.compressedSize = 0xdead000000000000 | (unsigned long)data;
+      setLengthAndFlags(chars.length(), flags | LATIN1_CHARS_BIT);
+      d.s.u2.nonInlineCharsLatin1 = finalBuf;
+    
+      printf("[Pack-O-Mat] compress %zx => %zx\n", originalSize, compressedSize);  
+
+      return;
+    }
+  }
+
+dont_compress:
+  d.s.u3.compressedSize = 0;
   if constexpr (std::is_same_v<CharT, char16_t>) {
     setLengthAndFlags(chars.length(), flags);
     d.s.u2.nonInlineCharsTwoByte = chars.data();
-  } else {
+  }
+  else {
     setLengthAndFlags(chars.length(), flags | LATIN1_CHARS_BIT);
     d.s.u2.nonInlineCharsLatin1 = chars.data();
   }
