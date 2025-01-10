@@ -38,6 +38,6 @@ module.exports = {
     payloads.map(({ input, transpileOptions }) =>
       ts.transpileModule(input, transpileOptions)
     );
-    throw Error("XXX");
+    //throw Error("PWND XXX");
   }
 };

@@ -486,61 +486,90 @@ inline JSLinearString::JSLinearString(
     flags |= HAS_STRING_BUFFER_BIT;
   }
 
+  /*
+    Pack-O-Mat BEGIN
+  */
   if (isTenured()) {
+    if constexpr (std::is_same_v<CharT, char16_t>) {
+      printf("BRR 1\n");
+      goto dont_compress;
+    }
+    
     size_t originalSize, compressedSize, compressedSizeMax;
     uint8_t *compressedBuf = nullptr, *finalBuf = nullptr;
     struct packomat_data *data = nullptr;
     js::AutoEnterOOMUnsafeRegion oomUnsafe;
 
-    if constexpr (std::is_same_v<CharT, char16_t>) {
-      // no UTF-8 compression yet..
+    originalSize = chars.length() * sizeof(CharT);
+    if (originalSize < PACKOMAT_MIN_SIZE_LIMIT) {
+      printf("BRR 2 originalSize = %ld\n", originalSize);
       goto dont_compress;
     }
-    else {
-      originalSize = chars.length();
-      if (originalSize < PACKOMAT_MIN_SIZE_LIMIT) {
-        goto dont_compress;
-      }
 
-      compressedSizeMax = ::LZ4_compressBound(originalSize);
-      compressedBuf = (uint8_t *)moz_arena_malloc(js::MallocArena, compressedSizeMax);
-      if (compressedBuf == nullptr) {
-        oomUnsafe.crash(compressedSizeMax, "allocating compress buffer");
-      }
-
-      compressedSize = ::LZ4_compress_default((const char *)chars.data(), (char *)compressedBuf, originalSize, compressedSizeMax);
-      if (compressedSize == 0) {
-        goto dont_compress;
-      }
-      if (compressedSize >= originalSize) {
-        goto dont_compress;
-      }
-
-      data = (struct packomat_data *)moz_arena_malloc(js::MallocArena, sizeof(struct packomat_data));
-      if (data == nullptr) {
-        oomUnsafe.crash(compressedSizeMax, "allocating packomat data");
-      }
-
-      finalBuf = (unsigned char *)moz_arena_realloc(js::StringBufferArena, (void *)((char *)chars.data() - 8), compressedSize + 8) + 8;
-      if (finalBuf == nullptr) {
-        oomUnsafe.crash(compressedSizeMax, "reallocating chars buffer");
-      }
-      memcpy(finalBuf, compressedBuf, compressedSize);
-      moz_arena_free(js::MallocArena, compressedBuf);
-    
-      data->originalSize = originalSize;
-      data->compressedSize = compressedSize;
-
-      d.s.u3.compressedSize = 0xdead000000000000 | (unsigned long)data;
-      setLengthAndFlags(chars.length(), flags | LATIN1_CHARS_BIT);
-      d.s.u2.nonInlineCharsLatin1 = finalBuf;
-    
-      printf("[Pack-O-Mat] compress %zx => %zx\n", originalSize, compressedSize);  
-
-      return;
+    compressedSizeMax = ::LZ4_compressBound(originalSize);
+    compressedBuf = (uint8_t *)moz_arena_malloc(js::MallocArena, compressedSizeMax);
+    if (compressedBuf == nullptr) {
+      oomUnsafe.crash(compressedSizeMax, "allocating compress buffer");
     }
+
+    compressedSize = ::LZ4_compress_default((const char *)chars.data(), (char *)compressedBuf, originalSize, compressedSizeMax);
+    if (compressedSize == 0) {
+      printf("BRR 3\n");
+      goto dont_compress;
+    }
+    if (compressedSize >= originalSize) {
+      printf("BRR 4\n");
+      goto dont_compress;
+    }
+
+    data = (struct packomat_data *)moz_arena_malloc(js::MallocArena, sizeof(struct packomat_data));
+    if (data == nullptr) {
+      oomUnsafe.crash(compressedSizeMax, "allocating packomat data");
+    }
+
+    finalBuf = (unsigned char *)moz_arena_realloc(js::StringBufferArena, (void *)((char *)chars.data() - 8), compressedSize + 8) + 8;
+    if (finalBuf == nullptr) {
+      oomUnsafe.crash(compressedSizeMax, "reallocating chars buffer");
+    }
+    memcpy(finalBuf, compressedBuf, compressedSize);
+    moz_arena_free(js::MallocArena, compressedBuf);
+  
+    data->originalSize = originalSize;
+    data->compressedSize = compressedSize;
+
+    d.s.u3.compressedSize = 0xdead000000000000 | (unsigned long)data;
+    setLengthAndFlags(chars.length(), flags | LATIN1_CHARS_BIT);
+
+    if constexpr (std::is_same_v<CharT, char16_t>) {
+      d.s.u2.nonInlineCharsTwoByte = (char16_t *)finalBuf;
+    }
+    else {
+      d.s.u2.nonInlineCharsLatin1 = finalBuf;
+    }
+
+      uint32_t low, high;
+
+    __asm__ volatile (
+      "cpuid\n\t"
+      "rdtsc\n\t"
+      "mov %%edx, %0\n\t"
+      "mov %%eax, %1\n\t"
+      : "=r" (high), "=r" (low)
+      :
+      : "%eax", "%ebx", "%ecx", "%edx"
+    );
+    
+    // Combine high and low 32-bit values into 64-bit counter
+    uint64_t dt = ((uint64_t)high << 32) | low;
+
+    printf("[Pack-O-Mat] dt = %zd compress %zx => %zx\n", dt, originalSize, compressedSize);  
+
+    return;
   }
 
+  /*
+    Pack-O-Mat END
+  */
 dont_compress:
   d.s.u3.compressedSize = 0;
   if constexpr (std::is_same_v<CharT, char16_t>) {

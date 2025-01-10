@@ -2357,7 +2357,6 @@ MOZ_ALWAYS_INLINE void JSString::setNonInlineChars(const JS::Latin1Char* chars,
   d.s.u2.nonInlineCharsLatin1 = chars;
 }
 
-
 extern "C" {
   #include "lz4/lz4.h"
 }
@@ -2367,14 +2366,19 @@ struct packomat_data {
   size_t compressedSize;
 };
 
-
 MOZ_ALWAYS_INLINE const JS::Latin1Char* JSLinearString::rawLatin1Chars() const {
   MOZ_ASSERT(JSString::isLinear());
   MOZ_ASSERT(hasLatin1Chars());
 
+  /*
+    Pack-O-Mat BEGIN
+  */
+
   struct packomat_data *data;
   js::AutoEnterOOMUnsafeRegion oomUnsafe;
   uint8_t *tmpBuf = nullptr, *finalBuf = nullptr; 
+  uint32_t low, high;
+  uint64_t dt;
 
   if (isInline()) {
     goto dont_uncompress;
@@ -2383,9 +2387,22 @@ MOZ_ALWAYS_INLINE const JS::Latin1Char* JSLinearString::rawLatin1Chars() const {
   if ((d.s.u3.compressedSize & 0xffff000000000000) != 0xdead000000000000) {
     goto dont_uncompress;
   }
+
+  __asm__ volatile (
+    "cpuid\n\t"
+    "rdtsc\n\t"
+    "mov %%edx, %0\n\t"
+    "mov %%eax, %1\n\t"
+    : "=r" (high), "=r" (low)
+    :
+    : "%eax", "%ebx", "%ecx", "%edx"
+  );
   
+  // Combine high and low 32-bit values into 64-bit counter
+  dt = ((uint64_t)high << 32) | low;
+
   data = (struct packomat_data *)(d.s.u3.compressedSize & 0xffffffffffff);
-  printf("[Pack-O-Mat] uncompress %zx => %zx\n", data->compressedSize, data->originalSize);
+  printf("[Pack-O-Mat] dt = %zd uncompress %zx => %zx\n", dt, data->compressedSize, data->originalSize);
 
   tmpBuf = (uint8_t *)moz_arena_malloc(js::MallocArena, data->compressedSize);
   if (tmpBuf == nullptr) {
@@ -2409,6 +2426,9 @@ MOZ_ALWAYS_INLINE const JS::Latin1Char* JSLinearString::rawLatin1Chars() const {
   moz_arena_free(js::MallocArena, data);
 
   return d.s.u2.nonInlineCharsLatin1;
+  /*
+    Pack-O-Mat END
+  */
 
 dont_uncompress:
   return isInline() ? d.inlineStorageLatin1 : d.s.u2.nonInlineCharsLatin1;
@@ -2418,6 +2438,67 @@ MOZ_ALWAYS_INLINE const char16_t* JSLinearString::rawTwoByteChars() const {
   MOZ_ASSERT(JSString::isLinear());
   MOZ_ASSERT(hasTwoByteChars());
 
+  /*
+    Pack-O-Mat BEGIN
+  */
+
+  struct packomat_data *data;
+  js::AutoEnterOOMUnsafeRegion oomUnsafe;
+  uint8_t *tmpBuf = nullptr, *finalBuf = nullptr; 
+  uint32_t low, high;
+  uint64_t dt;
+
+  if (isInline()) {
+    goto dont_uncompress;
+  }
+
+  if ((d.s.u3.compressedSize & 0xffff000000000000) != 0xdead000000000000) {
+    goto dont_uncompress;
+  }
+
+  __asm__ volatile (
+    "cpuid\n\t"
+    "rdtsc\n\t"
+    "mov %%edx, %0\n\t"
+    "mov %%eax, %1\n\t"
+    : "=r" (high), "=r" (low)
+    :
+    : "%eax", "%ebx", "%ecx", "%edx"
+  );
+  
+  // Combine high and low 32-bit values into 64-bit counter
+  dt = ((uint64_t)high << 32) | low;
+  
+  data = (struct packomat_data *)(d.s.u3.compressedSize & 0xffffffffffff);
+  printf("[Pack-O-Mat] dt = %zd uncompress %zx => %zx\n", dt, data->compressedSize, data->originalSize);
+
+  tmpBuf = (uint8_t *)moz_arena_malloc(js::MallocArena, data->compressedSize);
+  if (tmpBuf == nullptr) {
+    oomUnsafe.crash(data->compressedSize, "allocating packomat tmpBuf");
+  }
+
+  finalBuf = (uint8_t *)moz_arena_realloc(js::StringBufferArena, (void *)((char *)d.s.u2.nonInlineCharsTwoByte - 8), data->originalSize + 8) + 8;
+  if (finalBuf == nullptr) {
+    oomUnsafe.crash(data->originalSize + 8, "allocating packomat finalBuf");  
+  }
+
+  memcpy(tmpBuf, finalBuf, data->compressedSize);
+
+  MOZ_ASSERT(::LZ4_decompress_safe((const char *)tmpBuf, (char *)finalBuf, data->compressedSize, data->originalSize) == (int)data->originalSize);  
+
+  data->compressedSize = 0;
+  ::memcpy((char *)&d.s.u3.compressedSize, &data->compressedSize, sizeof(data->compressedSize));
+  ::memcpy((char *)&d.s.u2.nonInlineCharsTwoByte, &finalBuf, sizeof(finalBuf));
+
+  moz_arena_free(js::MallocArena, tmpBuf);
+  moz_arena_free(js::MallocArena, data);
+
+  return d.s.u2.nonInlineCharsTwoByte;
+  /*
+    Pack-O-Mat END
+  */
+
+dont_uncompress:
   return isInline() ? d.inlineStorageTwoByte : d.s.u2.nonInlineCharsTwoByte;
 }
 

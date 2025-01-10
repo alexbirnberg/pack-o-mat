@@ -1,43 +1,26 @@
-# Pack-O-Mat
-### String Views
-```
-C++ type                     operations+fields / invariants+properties
-==========================   =========================================
-JSString (abstract)          get(Latin1|TwoByte)CharsZ, get(Latin1|TwoByte)Chars, length / -    N/A
- | \
- | JSRope                    leftChild, rightChild / -                                          XXX
- |
-JSLinearString               latin1Chars, twoByteChars / -                                      OK
- |
- +-- JSDependentString       base / -                                                           OK
- |   |
- |   +-- JSAtomRefString     - / base points to an atom                                         N/A
- |
- +-- JSExternalString        - / char array memory managed by embedding                         OK
- |
- +-- JSExtensibleString      - / tracks total buffer capacity (including current text)          OK
- |
- +-- JSInlineString (abstract) - / chars stored in header                                       OK
- |   |
- |   +-- JSThinInlineString  - / header is normal                                               OK
- |   |
- |   +-- JSFatInlineString   - / header is fat                                                  OK
- |
-JSAtom (abstract)            - / string equality === pointer equality                           N/A
- |  |
- |  +-- js::NormalAtom       JSLinearString + atom hash code / -                                OK
- |  |   |
- |  |   +-- js::ThinInlineAtom                                                                  OK
- |  |                        possibly larger JSThinInlineString + atom hash code / -       
- |  |
- |  +-- js::FatInlineAtom    JSFatInlineString w/atom hash code / -                             OK
- |
-js::PropertyName             - / chars don't contain an index (uint32_t)                        N/A
-```
+# Pack-O-Mat: Optimizing String Views in SpiderMonkey
 
-TODO:
-- Evaluate raw performance
-- GC statistics
-- JIT enabled?
-- Allocation site profiling?
-- Other data compressed? (Metaspace) ETH
+## Overview
+Pack-O-Mat is an optimization project designed to reduce memory overhead in the SpiderMonkey JavaScript engine. It introduces targeted compression for `JSLinearString` objects, leveraging the LZ4 algorithm to improve memory efficiency while maintaining high performance. This repository contains the analysis scripts, benchmark results, and integration examples used in the research.
+
+## Getting Started
+
+### Prerequisites
+- Python 3.x
+- Node.js (for benchmarks)
+- GNU Make (for build automation)
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/alexbirnberg/pack-o-mat.git
+
+2. Compile the code:
+   ```bash
+   make
+
+3. Run the examples:
+   ```bash
+   make run
+
+For instructions on compiling and running the benchmarks used in this project, refer to the <a href="https://github.com/v8/web-tooling-benchmark/tree/master">Web Tooling Benchmark repository</a>.
