@@ -1,0 +1,4 @@
+[
+    "-fno-omit-frame-pointer",
+    "-funwind-tables"
+]

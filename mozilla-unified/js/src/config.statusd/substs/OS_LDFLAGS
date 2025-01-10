@@ -1,0 +1,12 @@
+[
+    "-Wl,--build-id=uuid",
+    "-Wl,-z,noexecstack",
+    "-Wl,-z,text",
+    "-Wl,-z,relro",
+    "-Wl,-z,now",
+    "-Wl,-z,nocopyreloc",
+    "-fuse-ld=lld",
+    "-Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/lib/x86_64-linux-gnu",
+    "-Wl,-rpath-link,/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu",
+    "-Wl,-O0"
+]

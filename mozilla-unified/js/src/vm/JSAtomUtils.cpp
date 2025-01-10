@@ -566,6 +566,9 @@ static MOZ_ALWAYS_INLINE JSAtom* MakeUTF8AtomHelperNonStaticValidLength(
     }
 
     InflateUTF8CharsToBuffer(chars->utf8, storage, length, chars->encoding);
+
+    str->dump();
+    
     return str;
   }
 

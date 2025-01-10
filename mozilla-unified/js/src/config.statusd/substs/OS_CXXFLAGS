@@ -1,0 +1,9 @@
+[
+    "-fno-rtti",
+    "-pthread",
+    "-fno-sized-deallocation",
+    "-fno-aligned-new",
+    "-fno-math-errno",
+    "-fno-exceptions",
+    "-fPIC"
+]

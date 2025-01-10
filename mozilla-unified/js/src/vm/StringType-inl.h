@@ -63,12 +63,16 @@ static MOZ_ALWAYS_INLINE JSInlineString* NewInlineString(
 
   size_t len = chars.length();
   CharT* storage;
+
   JSInlineString* str = AllocateInlineString<allowGC>(cx, len, &storage, heap);
   if (!str) {
     return nullptr;
   }
 
   mozilla::PodCopy(storage, chars.begin().get(), len);
+
+  //str->dump();
+
   return str;
 }
 
@@ -107,6 +111,9 @@ static MOZ_ALWAYS_INLINE JSInlineString* NewInlineString(
     constexpr size_t toCopy = std::min(N, MaxLength) * sizeof(CharT);
     std::memcpy(storage, chars, toCopy);
   }
+
+  //str->dump();
+
   return str;
 }
 
@@ -122,6 +129,9 @@ static MOZ_ALWAYS_INLINE JSAtom* NewInlineAtom(JSContext* cx,
   }
 
   mozilla::PodCopy(storage, chars, length);
+
+  //str->dump();
+  
   return str;
 }
 
@@ -140,6 +150,9 @@ static MOZ_ALWAYS_INLINE JSInlineString* NewInlineString(
 
   JS::AutoCheckCannotGC nogc;
   mozilla::PodCopy(chars, base->chars<CharT>(nogc) + start, length);
+
+  //s->dump();
+
   return s;
 }
 
@@ -369,7 +382,13 @@ MOZ_ALWAYS_INLINE JSRope* JSRope::new_(
   if (MOZ_UNLIKELY(!validateLengthInternal<allowGC>(cx, length))) {
     return nullptr;
   }
-  return cx->newCell<JSRope, allowGC>(heap, left, right, length);
+  JSRope *str = cx->newCell<JSRope, allowGC>(heap, left, right, length);
+
+  if (str != nullptr) {
+    //str->dump();
+  }
+
+  return str;
 }
 
 inline JSDependentString::JSDependentString(JSLinearString* base, size_t start,
@@ -413,11 +432,14 @@ MOZ_ALWAYS_INLINE JSLinearString* JSDependentString::new_(
   JSDependentString* str =
       cx->newCell<JSDependentString, js::NoGC>(heap, baseArg, start, length);
   if (str) {
+    //str->dump();
     return str;
   }
 
   JS::Rooted<JSLinearString*> base(cx, baseArg);
-  return cx->newCell<JSDependentString>(heap, base, start, length);
+  str = cx->newCell<JSDependentString>(heap, base, start, length);
+  //str->dump();
+  return str;
 }
 
 inline JSLinearString::JSLinearString(const char16_t* chars, size_t length,
@@ -439,6 +461,15 @@ inline JSLinearString::JSLinearString(const JS::Latin1Char* chars,
   d.s.u2.nonInlineCharsLatin1 = chars;
 }
 
+extern "C" {
+  #include "lz4/lz4.h"
+}
+
+#include "gc/Nursery.h"
+#include "gc/Zone.h"
+
+#define PACKOMAT_MIN_SIZE_LIMIT 2000
+
 template <typename CharT>
 inline JSLinearString::JSLinearString(
     JS::MutableHandle<JSString::OwnedChars<CharT>> chars) {
@@ -454,10 +485,98 @@ inline JSLinearString::JSLinearString(
   if (chars.hasStringBuffer()) {
     flags |= HAS_STRING_BUFFER_BIT;
   }
+
+  /*
+    Pack-O-Mat BEGIN
+  */
+  if (isTenured()) {
+    if constexpr (std::is_same_v<CharT, char16_t>) {
+      printf("BRR 1\n");
+      goto dont_compress;
+    }
+    
+    size_t originalSize, compressedSize, compressedSizeMax;
+    uint8_t *compressedBuf = nullptr, *finalBuf = nullptr;
+    struct packomat_data *data = nullptr;
+    js::AutoEnterOOMUnsafeRegion oomUnsafe;
+
+    originalSize = chars.length() * sizeof(CharT);
+    if (originalSize < PACKOMAT_MIN_SIZE_LIMIT) {
+      printf("BRR 2 originalSize = %ld\n", originalSize);
+      goto dont_compress;
+    }
+
+    compressedSizeMax = ::LZ4_compressBound(originalSize);
+    compressedBuf = (uint8_t *)moz_arena_malloc(js::MallocArena, compressedSizeMax);
+    if (compressedBuf == nullptr) {
+      oomUnsafe.crash(compressedSizeMax, "allocating compress buffer");
+    }
+
+    compressedSize = ::LZ4_compress_default((const char *)chars.data(), (char *)compressedBuf, originalSize, compressedSizeMax);
+    if (compressedSize == 0) {
+      printf("BRR 3\n");
+      goto dont_compress;
+    }
+    if (compressedSize >= originalSize) {
+      printf("BRR 4\n");
+      goto dont_compress;
+    }
+
+    data = (struct packomat_data *)moz_arena_malloc(js::MallocArena, sizeof(struct packomat_data));
+    if (data == nullptr) {
+      oomUnsafe.crash(compressedSizeMax, "allocating packomat data");
+    }
+
+    finalBuf = (unsigned char *)moz_arena_realloc(js::StringBufferArena, (void *)((char *)chars.data() - 8), compressedSize + 8) + 8;
+    if (finalBuf == nullptr) {
+      oomUnsafe.crash(compressedSizeMax, "reallocating chars buffer");
+    }
+    memcpy(finalBuf, compressedBuf, compressedSize);
+    moz_arena_free(js::MallocArena, compressedBuf);
+  
+    data->originalSize = originalSize;
+    data->compressedSize = compressedSize;
+
+    d.s.u3.compressedSize = 0xdead000000000000 | (unsigned long)data;
+    setLengthAndFlags(chars.length(), flags | LATIN1_CHARS_BIT);
+
+    if constexpr (std::is_same_v<CharT, char16_t>) {
+      d.s.u2.nonInlineCharsTwoByte = (char16_t *)finalBuf;
+    }
+    else {
+      d.s.u2.nonInlineCharsLatin1 = finalBuf;
+    }
+
+      uint32_t low, high;
+
+    __asm__ volatile (
+      "cpuid\n\t"
+      "rdtsc\n\t"
+      "mov %%edx, %0\n\t"
+      "mov %%eax, %1\n\t"
+      : "=r" (high), "=r" (low)
+      :
+      : "%eax", "%ebx", "%ecx", "%edx"
+    );
+    
+    // Combine high and low 32-bit values into 64-bit counter
+    uint64_t dt = ((uint64_t)high << 32) | low;
+
+    printf("[Pack-O-Mat] dt = %zd compress %zx => %zx\n", dt, originalSize, compressedSize);  
+
+    return;
+  }
+
+  /*
+    Pack-O-Mat END
+  */
+dont_compress:
+  d.s.u3.compressedSize = 0;
   if constexpr (std::is_same_v<CharT, char16_t>) {
     setLengthAndFlags(chars.length(), flags);
     d.s.u2.nonInlineCharsTwoByte = chars.data();
-  } else {
+  }
+  else {
     setLengthAndFlags(chars.length(), flags | LATIN1_CHARS_BIT);
     d.s.u2.nonInlineCharsLatin1 = chars.data();
   }
@@ -530,6 +649,8 @@ MOZ_ALWAYS_INLINE JSLinearString* JSLinearString::newValidLength(
   // Either the tenured Cell or the nursery's registry owns the chars now.
   chars.release();
 
+  //str->dump();
+
   return str;
 }
 
@@ -554,6 +675,8 @@ MOZ_ALWAYS_INLINE JSAtom* JSAtom::newValidLength(JSContext* cx,
   MOZ_ASSERT(str->isTenured());
   cx->zone()->addCellMemory(str, length * sizeof(CharT),
                             js::MemoryUse::StringContents);
+
+  //str->dump();
 
   return str;
 }
@@ -676,6 +799,8 @@ MOZ_ALWAYS_INLINE JSExternalString* JSExternalString::newImpl(
 
   MOZ_ASSERT(str->isTenured());
   js::AddCellMemory(str, nbytes, js::MemoryUse::StringContents);
+
+  //str->dump();
 
   return str;
 }

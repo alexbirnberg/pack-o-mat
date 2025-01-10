@@ -1,0 +1,1 @@
+"-x c++ -fno-sized-deallocation -fno-aligned-new -DTRACING=1 -DIMPL_LIBXUL -DMOZILLA_INTERNAL_API -DRUST_BINDGEN --sysroot /home/user/.mozbuild/sysroot-x86_64-linux-gnu"

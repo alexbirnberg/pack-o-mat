@@ -1,0 +1,4 @@
+[
+    "-fprofile-use=/home/user/Documents/GitHub/pack-o-mat/mozilla-unified/instrumented/merged.profdata",
+    "-Wno-error=backend-plugin"
+]

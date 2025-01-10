@@ -1,0 +1,4 @@
+[
+    "-L/home/user/.mozbuild/sysroot-x86_64-linux-gnu/usr/lib/x86_64-linux-gnu",
+    "-lz"
+]
